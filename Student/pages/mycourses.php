@@ -30,10 +30,10 @@
 
         <!-- Sidebar -->
         <?php
-                include('../../database.php');
-                include('../elements/sidebar.php');
-                include('../elements/session.php');
-                ?>
+            include('../../database.php');
+            include('../elements/sidebar.php');
+            include('../elements/session.php');
+        ?>
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -65,13 +65,13 @@
                             WHERE py.stu_email = '$stuLogEmail' AND py.status = 'success'";
 
                     $result = $conn->query($sql);
+                    
 
                     if ($result) {
                         if ($result->num_rows > 0) {
                             // Loop through the query results and display course information
                             while ($row = $result->fetch_assoc()) {
                                 echo '
-                                    
                                         <div class="col col-lg-6">
                                             <div class="card ml-2">
                                                 <img src="' . $row['courseimage'] . '"
@@ -87,6 +87,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                    
                                     
                                 
                             ';

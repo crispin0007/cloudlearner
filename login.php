@@ -122,6 +122,7 @@
             </form>
         </div>
     </div>
+    
     <!-- End Form Start -->
     <?php 
 	include 'elements/footer.php'

@@ -57,9 +57,14 @@
      text-transform: capitalize;
   }
   
-    .container1{
+  body{
+     background-color: rgb(33, 33, 32);
+     padding:20px;
+  }
+  
+  .container1{
      max-width: 1200px;
-     margin:10px auto;
+     margin:100px auto;
      display: flex;
      flex-wrap: wrap;
      align-items: flex-start;
@@ -174,47 +179,54 @@
   
   }</style>
   
+  <div class="container1">
   <?php
   if (isset($_GET['course_id'])) {
     $course_id = $_GET['course_id'];
     $sql = "SELECT * FROM lesson WHERE course_id= '$course_id' ";
     $result = $conn->query($sql);
-    $sql1 = "SELECT * FROM lesson WHERE course_id= '$course_id' LIMIT 1;";
-    $result1 = $conn->query($sql1);
   }
-  if ($result1->num_rows > 0) {
-    $row1 = $result1->fetch_assoc();
-  echo'<div class="container">
-  <div class="h3 text-success font-weight-bold ">Course Title: ' . $row1['course_name'] . '</div>
-  </div>
-  <div class="container1">';
-  
+  ?>
 
- 
-  echo'
-  
   <div class="main-video-container1">
-    <video src="' . $row1['lesson_link'] . '" loop controls class="main-video"></video>
-    <h3 class="main-vid-title">' . $row1['lesson_name'] . '</h3>
-  </div>';
-}
+    <video src="../../img/videoes/vid-1.mp4" loop controls class="main-video"></video>
+    <h3 class="main-vid-title">house flood animation</h3>
+  </div>
   
-  
-  echo'<div class="video-list-container1">';
-  while ($row = $result->fetch_assoc()) {
-    echo'
+  <div class="video-list-container1">
       <div class="list active">
-      <video src="' . $row['lesson_link'] . '" class="list-video"></video>
-      <h3 class="list-title">' . $row['lesson_name'] . '</h3>';
+      <video src="../../img/videoes/vid-1.mp4" class="list-video"></video>
+      <h3 class="list-title">house flood animation</h3>
+    </div>
+  
+    <div class="list">
+      <video src="../../img/videoes/vid-2.mp4" class="list-video"></video>
+      <h3 class="list-title">zoombie walking animation</h3>
+    </div>
+  
+    <div class="list">
+      <video src="../../img/videoes/vid-3.mp4" class="list-video"></video>
+      <h3 class="list-title">emoji falling animation</h3>
+    </div>
+  
+    <div class="list">
+      <video src="../../img/videoes/vid-4.mp4" class="list-video"></video>
+      <h3 class="list-title">3D town animation</h3>
+    </div>
+  
     
-    echo'  </div>';
-  }
-    ?>
   
   </div>
   
   </div>
-
+  
+  
+  
+  
+  
+  
+  
+  
   <script>
   let videoList = document.querySelectorAll('.video-list-container1 .list');
   
