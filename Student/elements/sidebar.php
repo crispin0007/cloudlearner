@@ -46,6 +46,12 @@
             <i class="fa-solid fa-comment"></i>
             <span>Feedback</span></a>
     </li>
+    <!-- Nav Item - Add blog -->
+    <li class="nav-item">
+        <a class="nav-link" href="addblog.php">
+            <i class="fa-brands fa-blogger-b"></i>
+            <span>Write Blog Post</span></a>
+    </li>
     <!-- Nav Item - Change Password -->
     <li class="nav-item">
         <a class="nav-link" href="changepassword.php">

@@ -128,7 +128,7 @@
                     echo '</tbody>
                         </table>';
                         }else{
-                            echo "0 results";
+                            echo "No Approval Post Remaining";
                         };
                         // delete course 
                         if(isset($_REQUEST['delete'])){
@@ -152,12 +152,7 @@
                         
                         ?>
 
-                    <div>
-                        <a href="addblog.php" class="btn btn-primary btn-circle btn-lg "
-                            style="position: fixed;bottom: 10px;right: 20px;margin-bottom: 30px;">
-                            <i class="fas fa-plus fa-2x"></i>
-                        </a>
-                    </div>
+                    
 
                 </div>
                 <!-- /.container-fluid -->

@@ -71,6 +71,7 @@
                                     <th>Course ID</th>
                                     <th>Course Title</th>
                                     <th>Author</th>
+                                    <th>Lessons</th>
                                     <th>Status</th>
                                     <th>Actions</th>
                                 </tr>
@@ -92,6 +93,14 @@
                                 <td>
                                     <img src="" alt="Author Avatar" style="width: 45px; height: 45px" class="rounded-circle" />
                                     <p class="fw-normal mb-1">' .$row["author"] . '</p>
+                                </td>
+                                <td>
+                                <form action="lessonlist.php" method="POST" class="d-inline">
+                                <input type="hidden" name="id" value="'.$row["course_id"]. '">
+                                <button type="submit" name="viewlessons" value="Viewlessons" class="btn btn-warning text-dark">
+                                    Go To LEssons
+                                </button>
+                            </form>
                                 </td>
                                 <td>
                                     <span class="badge badge-success rounded-pill d-inline"> Active </span>

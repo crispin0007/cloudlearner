@@ -138,7 +138,7 @@
                                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                                 Orders</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                                <?php echo  $totalBlog ;?></div>
+                                                <?php echo  $totalOrder ;?></div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fa-solid fa-cart-shopping fa-2x text-gray-300"></i>
@@ -176,9 +176,9 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                Students</div>
+                                                Total Lessons</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                                <?php echo  $totalBlog ;?></div>
+                                                <?php echo  $totaLesson ;?></div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fa-solid fa-person-chalkboard fa-2x text-gray-300"></i>
@@ -194,7 +194,7 @@
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Income
+                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Total Teachers
                                             </div>
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col-auto">

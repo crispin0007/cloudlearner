@@ -133,7 +133,7 @@
                         echo '</tbody>
                         </table>';
                     } else {
-                        echo "0 results";
+                        echo "No Approval Course Remaining";
                     }
                     ;
                     // delete course 
