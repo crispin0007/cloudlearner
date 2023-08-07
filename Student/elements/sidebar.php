@@ -52,6 +52,12 @@
             <i class="fa-brands fa-blogger-b"></i>
             <span>Write Blog Post</span></a>
     </li>
+    <!-- Nav Item - List Blog -->
+    <li class="nav-item">
+        <a class="nav-link" href="myblog.php">
+            <i class="fa-brands fa-blogger-b"></i>
+            <span>My Blog List</span></a>
+    </li>
     <!-- Nav Item - Change Password -->
     <li class="nav-item">
         <a class="nav-link" href="changepassword.php">

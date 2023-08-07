@@ -147,7 +147,7 @@
                             <div class="col">
                                 <div class="form-outline">
                                     <input type="text" id="blogauthor" name="blogauthor" class="form-control" value="<?php if (isset($row['post_author']))
-                                        echo $row['post_author'];  ?>" readonly/>
+                                        echo $row['post_author']; ?>" />
                                     <label class="form-label" for="blogauthor">Author Name</label>
                                 </div>
                             </div>
