@@ -57,8 +57,6 @@
                     </div>
                     <?php 
 
-
-
                         $sql = "SELECT * FROM blog_posts WHERE status='0'";
                         $result = $conn -> query($sql);
                         if($result ->num_rows > 0){

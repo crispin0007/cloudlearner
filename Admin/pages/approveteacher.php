@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Admin Dashboard | Cloud Learner</title>
+    <title>Blog | Cloud Learner</title>
 
     <!-- Custom fonts -->
 
@@ -24,16 +24,15 @@
 </head>
 
 <body id="page-top">
-
+    <?php include('../../database.php');
+     include('../elements/session.php');   
+    ?>
     <!-- Page Wrapper -->
     <div id="wrapper">
 
         <!-- Sidebar -->
         <?php
-                include('../../database.php');
-                include('../elements/sidebar.php');
-                include('../elements/session.php');
-                include('../elements/count.php');
+                include('../elements/sidebar.php')
                 ?>
         <!-- End of Sidebar -->
 
@@ -53,10 +52,96 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Teacher Approval</h1>
-                        
-                  
+                        <h1 class="h3 mb-0 text-gray-800">Approve Teacher</h1>
+
                     </div>
+                    <?php 
+                        $sql = "SELECT * FROM teacher WHERE status='0'";
+                        $result = $conn -> query($sql);
+                        if($result ->num_rows > 0){
+                            echo '<table class="table align-middle mb-0 bg-white">
+                            <thead class="bg-light">
+                                <tr>
+                                    <th>Teacher ID</th>
+                                    <th>Teacher Name</th>
+                                    <th>Teacher Email</th>
+                                    <th>Teacher Position</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>';
+            
+                    while ($row = $result->fetch_assoc()) {
+                        echo '<tr>
+                                <td>
+                                    <span class="badge badge-success rounded-pill d-inline">' . $row["teacher_id"] . '</span>
+                                </td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <div class="ms-3">
+                                            <p class="fw-bold mb-1">' . $row["teacher_name"] . '</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <img src="" alt="Author Avatar" style="width: 45px; height: 45px" class="rounded-circle" />
+                                    <p class="fw-normal mb-1">' .$row["teacher_email"] . '</p>
+                                </td>
+                                <td>
+                                    
+                                    <p class="fw-normal mb-1">' .$row["teacher_position"] . '</p>
+                                </td>
+                                <td>
+                                    <span class="badge badge-warning rounded-pill d-inline"> Pending </span>
+                                </td>
+                                <td>
+                                
+                                    <form action="" method="POST" class="d-inline">
+                                    <input type="hidden" name="id" value="'.$row["teacher_id"]. '">
+                                    <button type="submit" name="approveteacher" value="approveteacher" class="btn btn-success btn-circle">
+                                        <i class="fa-solid fa-check"></i>
+                                    </button>
+                                </form>
+                                </form>
+                            
+                                    <form action="" method="POST" class="d-inline">
+                                        <input type="hidden" name="id" value="' . $row["teacher_id"] . '">
+                                        <button type="submit" name="delete" value="Delete" class="btn btn-danger btn-circle">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </form>
+                                    
+                                </td> 
+                            </tr>';
+                    }
+            
+                    echo '</tbody>
+                        </table>';
+                        }else{
+                            echo "No Approval Teacher Remaining";
+                        };
+                        // delete course 
+                        if(isset($_REQUEST['delete'])){
+                            $sql = "DELETE FROM teacher WHERE teacher_id={$_REQUEST['id']}";
+                            if($conn ->query($sql) == TRUE){
+                                echo '<meta http-equiv="refresh" content=0;URL=?deleted />';
+                            }else{
+                                echo "Unable to delete data";
+                            }
+                        }
+                        if(isset($_REQUEST['approveteacher'])){
+                            $sql = "UPDATE teacher SET  status='1' WHERE teacher_id={$_REQUEST['id']}";
+                            if($conn ->query($sql) == TRUE){
+                                echo '<div class="alert alert-success">Teacher Approved</div>';
+                                echo '<meta http-equiv="refresh" content=0;URL=?approved />';
+                            }else{
+                                echo "Unable to Approve Post";
+                            }
+                        }
+
+                        
+                        ?>
 
                     
 
@@ -79,13 +164,13 @@
     <!-- End of Page Wrapper -->
 
     <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
+    <a class=" scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
 
 
-    <?php include('../elements/jsfile.php')    ?>
 
+    <?php include('../elements/jsfile.php')    ?>
 
 
 </body>
