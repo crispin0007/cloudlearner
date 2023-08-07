@@ -66,7 +66,7 @@
                 <div class="col-lg-9">
                     <!-- blog post -->
                     <?php 
-                            $sql = "SELECT * FROM blog_posts";
+                            $sql = "SELECT * FROM blog_posts WHERE status='1'";
                             $result = $conn->query($sql);
 
                             if ($result->num_rows > 0) {
@@ -142,11 +142,7 @@
                             <a href="#">music</a>
                         </div>
                     </div>
-                    <div class="sb-widget-item">
-                        <div class="add">
-                            <a href="#"><img src="img/add.jpg" alt=""></a>
-                        </div>
-                    </div>
+                
                 </div>
             </div>
         </div>

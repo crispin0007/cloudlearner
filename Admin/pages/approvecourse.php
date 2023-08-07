@@ -25,15 +25,15 @@
 
 <body id="page-top">
     <?php include('../../database.php');
-     include('../elements/session.php'); 
+    include('../elements/session.php');
     ?>
     <!-- Page Wrapper -->
     <div id="wrapper">
 
         <!-- Sidebar -->
         <?php
-                include('../elements/sidebar.php')
-                ?>
+        include('../elements/sidebar.php')
+            ?>
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -45,7 +45,7 @@
                 <!-- Topbar -->
                 <?php
                 include('../elements/topnavbar.php')
-                ?>
+                    ?>
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
@@ -56,16 +56,16 @@
                         <?php
                         if (isset($_SESSION['alert_msg'])) {
                             echo $_SESSION['alert_msg'];
-                          }
-                          
+                        }
+
                         ?>
 
                     </div>
-                    <?php 
-                        $sql = "SELECT * FROM coursedetails WHERE status='1'";
-                        $result = $conn -> query($sql);
-                        if($result ->num_rows > 0){
-                            echo '<table class="table align-middle mb-0 bg-white">
+                    <?php
+                    $sql = "SELECT * FROM coursedetails WHERE status='0'";
+                    $result = $conn->query($sql);
+                    if ($result->num_rows > 0) {
+                        echo '<table class="table align-middle mb-0 bg-white">
                             <thead class="bg-light">
                                 <tr>
                                     <th>Course ID</th>
@@ -76,9 +76,9 @@
                                 </tr>
                             </thead>
                             <tbody>';
-            
-                    while ($row = $result->fetch_assoc()) {
-                        echo '<tr>
+
+                        while ($row = $result->fetch_assoc()) {
+                            echo '<tr>
                                 <td>
                                     <span class="badge badge-success rounded-pill d-inline">' . $row["course_id"] . '</span>
                                 </td>
@@ -91,22 +91,34 @@
                                 </td>
                                 <td>
                                     <img src="" alt="Author Avatar" style="width: 45px; height: 45px" class="rounded-circle" />
-                                    <p class="fw-normal mb-1">' .$row["author"] . '</p>
+                                    <p class="fw-normal mb-1">' . $row["author"] . '</p>
                                 </td>
                                 <td>
-                                    <span class="badge badge-success rounded-pill d-inline"> Active </span>
+                                    <span class="badge badge-warning rounded-pill d-inline"> Pending </span>
                                 </td>
 
 
 
                                 <td>
                                 <form action="editcourse.php" method="POST" class="d-inline">
-                                    <input type="hidden" name="id" value="'.$row["course_id"]. '">
+                                    <input type="hidden" name="id" value="' . $row["course_id"] . '">
                                     <button type="submit" name="view" value="View" class="btn btn-primary btn-circle">
                                         <i class="fa-regular fa-pen-to-square"></i>
                                     </button>
                                 </form>
-                            
+                                <form action="" method="POST" class="d-inline">
+                                <input type="hidden" name="id" value="' . $row["course_id"] . '">
+                                <button type="submit" name="approvecourse" value="approvecourse" class="btn btn-success btn-circle">
+                                    <i class="fa-solid fa-check"></i>
+                                </button>
+                            </form>
+                            </form>
+                                <form action="previewcourse.php" method="POST" class="d-inline">
+                                <input type="hidden" name="id" value="' . $row["course_id"] . '">
+                                <button type="submit" name="previewcourse" value="previewcourse" class="btn btn-warning btn-circle">
+                                    <i class="fa-solid fa-eye"></i>
+                                </button>
+                            </form>
                                     <form action="" method="POST" class="d-inline">
                                         <input type="hidden" name="id" value="' . $row["course_id"] . '">
                                         <button type="submit" name="delete" value="Delete" class="btn btn-danger btn-circle">
@@ -116,35 +128,36 @@
                                     
                                 </td> 
                             </tr>';
-                    }
-            
-                    echo '</tbody>
-                        </table>';
-                        }else{
-                            echo "0 results";
-                        };
-                        // delete course 
-                        if(isset($_REQUEST['delete'])){
-                            $sql = "DELETE FROM coursedetails WHERE course_id={$_REQUEST['id']}";
-                            if($conn ->query($sql) == TRUE){
-                                echo '<meta http-equiv="refresh" content=0;URL=?deleted />';
-                            }else{
-                                echo "Unable to delete data";
-                            }
                         }
 
-                        
-                        ?>
+                        echo '</tbody>
+                        </table>';
+                    } else {
+                        echo "0 results";
+                    }
+                    ;
+                    // delete course 
+                    if (isset($_REQUEST['delete'])) {
+                        $sql = "DELETE FROM coursedetails WHERE course_id={$_REQUEST['id']}";
+                        if ($conn->query($sql) == TRUE) {
+                            echo '<meta http-equiv="refresh" content=0;URL=?deleted />';
+                        } else {
+                            echo "Unable to delete data";
+                        }
+                    }
+                    if(isset($_REQUEST['approvecourse'])){
+                        $sql = "UPDATE coursedetails SET  status='1' WHERE course_id={$_REQUEST['id']}";
+                        if($conn ->query($sql) == TRUE){
+                            echo '<div class="alert alert-success">Course Approved</div>';
+                            echo '<meta http-equiv="refresh" content=0;URL=?approved />';
+                        }else{
+                            echo "Unable to Approve Course";
+                        }
+                    }
 
+                    ?>
 
-
-
-                    <div>
-                        <a href="addcourse.php" class="btn btn-primary btn-circle btn-lg "
-                            style="position: fixed;bottom: 10px;right: 20px;margin-bottom: 30px;">
-                            <i class="fas fa-plus fa-2x"></i>
-                        </a>
-                    </div>
+                
 
                 </div>
                 <!-- /.container-fluid -->
@@ -154,7 +167,7 @@
 
             <!-- Footer -->
             <?php
-                include('../elements/footer.php')
+            include('../elements/footer.php')
                 ?>
             <!-- End of Footer -->
 
@@ -171,7 +184,7 @@
 
 
 
-    <?php include('../elements/jsfile.php')    ?>
+    <?php include('../elements/jsfile.php') ?>
 
 
 </body>

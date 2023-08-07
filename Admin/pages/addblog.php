@@ -46,8 +46,8 @@
                 $img_folder_location = str_replace('../../', '', '../../img/blogimage/'.$blogimage);
                 move_uploaded_file($blogimagetemp, $img_folder);
         
-                $sql = "INSERT INTO blog_posts (post_title, post_author, post_topic, post_descrip, postimagelocation, post_image) 
-                    VALUES ('$blogtitle', '$blogauthor', '$topic', '$blogdescription', '$img_folder_location','$img_folder') ";
+                $sql = "INSERT INTO blog_posts (post_title, post_author, post_topic, post_descrip, postimagelocation, post_image, status) 
+                    VALUES ('$blogtitle', '$blogauthor', '$topic', '$blogdescription', '$img_folder_location','$img_folder', '1') ";
                 if ($conn->query($sql) == TRUE) {
                     $alert_msg = '<div class="alert alert-success">Blog Post Uploaded Successfully</div>';
                 } else {

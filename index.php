@@ -146,7 +146,7 @@
                 <!-- course -->
                 <?php 
                 // Fetch course data from the database
-                $sql = "SELECT * FROM coursedetails"; // Replace 'your_table_name' with your actual table name.
+                $sql = "SELECT * FROM coursedetails WHERE status='1' LIMIT 6"; // Replace 'your_table_name' with your actual table name.
                 $result = $conn->query($sql);
 
                 // Check if there are any courses in the database

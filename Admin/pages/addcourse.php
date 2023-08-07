@@ -47,8 +47,8 @@
             $img_folder_location = str_replace('../../', '', '../../img/courseimg/'.$courseimage);
             move_uploaded_file($courseimagetemp, $img_folder);
 
-            $sql = "INSERT INTO coursedetails (course_title, oprice, category, coursedescription, courseimage, author, sprice, duration, imagelocation) 
-            VALUES ('$coursetitle', '$originalprice', '$category', '$description', '$img_folder', '$authorname', '$sellingprice','$courseduration', '$img_folder_location') ";
+            $sql = "INSERT INTO coursedetails (course_title, oprice, category, coursedescription, courseimage, author, sprice, duration, imagelocation, status) 
+            VALUES ('$coursetitle', '$originalprice', '$category', '$description', '$img_folder', '$authorname', '$sellingprice','$courseduration', '$img_folder_location', '1') ";
             if($conn->query($sql) == TRUE){
                 $alert_msg ='<div class="alert alert-success">Course Uploaded Successfully</div>';
             }else{

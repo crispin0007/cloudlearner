@@ -48,6 +48,23 @@
         <i class="fa-solid fa-list-check"></i>
             <span>Assignment</span></a>
     </li>
+    <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>Review</span>
+                </a>
+                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Review Utilities:</h6>
+                        <a class="collapse-item" href="approvecourse.php">Approve Course</a>
+                        <a class="collapse-item" href="approvepost.php">Approve Blog Post</a>
+                        <a class="collapse-item" href="approveteacher.php">Approve Teacher</a>
+                        
+                    </div>
+                </div>
+            </li>
     <!-- Nav Item - Students -->
     <li class="nav-item">
         <a class="nav-link" href="students.php">

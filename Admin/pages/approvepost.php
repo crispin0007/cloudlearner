@@ -56,7 +56,10 @@
 
                     </div>
                     <?php 
-                        $sql = "SELECT * FROM blog_posts WHERE status='1'";
+
+
+
+                        $sql = "SELECT * FROM blog_posts WHERE status='0'";
                         $result = $conn -> query($sql);
                         if($result ->num_rows > 0){
                             echo '<table class="table align-middle mb-0 bg-white">
@@ -88,7 +91,7 @@
                                     <p class="fw-normal mb-1">' .$row["post_author"] . '</p>
                                 </td>
                                 <td>
-                                    <span class="badge badge-success rounded-pill d-inline"> Active </span>
+                                    <span class="badge badge-warning rounded-pill d-inline"> Pending </span>
                                 </td>
                                 <td>
                                 <form action="editblog.php" method="POST" class="d-inline">
@@ -96,7 +99,20 @@
                                 <button type="submit" name="viewblog" value="Viewblog" class="btn btn-primary btn-circle">
                                     <i class="fa-regular fa-pen-to-square"></i>
                                 </button>
-                            </form>
+                                </form>
+                                    <form action="" method="POST" class="d-inline">
+                                    <input type="hidden" name="id" value="'.$row["post_id"]. '">
+                                    <button type="submit" name="approveblog" value="approveblog" class="btn btn-success btn-circle">
+                                        <i class="fa-solid fa-check"></i>
+                                    </button>
+                                </form>
+                                </form>
+                                    <form action="previewblog.php" method="POST" class="d-inline">
+                                    <input type="hidden" name="id" value="'.$row["post_id"]. '">
+                                    <button type="submit" name="previewblog" value="previewblog" class="btn btn-warning btn-circle">
+                                        <i class="fa-solid fa-eye"></i>
+                                    </button>
+                                </form>
                             
                                     <form action="" method="POST" class="d-inline">
                                         <input type="hidden" name="id" value="' . $row["post_id"] . '">
@@ -121,6 +137,15 @@
                                 echo '<meta http-equiv="refresh" content=0;URL=?deleted />';
                             }else{
                                 echo "Unable to delete data";
+                            }
+                        }
+                        if(isset($_REQUEST['approveblog'])){
+                            $sql = "UPDATE blog_posts SET  status='1' WHERE post_id={$_REQUEST['id']}";
+                            if($conn ->query($sql) == TRUE){
+                                echo '<div class="alert alert-success">Post Approved</div>';
+                                echo '<meta http-equiv="refresh" content=0;URL=?approved />';
+                            }else{
+                                echo "Unable to Approve Post";
                             }
                         }
 
