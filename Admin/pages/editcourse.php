@@ -185,7 +185,7 @@
                             <!-- upload image file  -->
                             <div class="col">
                                 <div class="form-outline">
-                                    <img src="<?php if(isset($row['courseimage'])) echo $row['courseimage']; ?>"  />
+                                    <img src="<?php if(isset($row['courseimage'])) echo $row['courseimage']; ?>"height:250px; width="400px"  />
                                     <input type="hidden" id="imagelocation1" name="imagelocation1" class="form-control" 
                                     value="<?php if(isset($row['courseimage'])) echo $row['courseimage']; ?>" />
                                     <label for="courseimage">Upload Course Image</label>
