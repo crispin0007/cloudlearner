@@ -51,7 +51,7 @@
                         <div class="col-md-12 text-center">
                             <div class="pt-2">
                                 <h5 class="mt-4 font-weight-medium mb-0">Sudip Sharma</h5>
-                                <h6 class="subtitle mb-3">Property Specialist</h6>
+                                <h6 class="subtitle mb-3">Developer </h6>
                                 <p>the frontend developer stands as a creative visionary. Skillfully wielding HTML, CSS, and JavaScript, they craft captivating user interfaces, 
 					translating design concepts into interactive realities. 
 				Their code expertise and design sensibilities combine to elevate user experiences and breathe life into digital landscapes.</p>
@@ -86,7 +86,7 @@
                         <div class="col-md-12 text-center">
                             <div class="pt-2">
                                 <h5 class="mt-4 font-weight-medium mb-0">Lalit chaudhary</h5>
-                                <h6 class="subtitle mb-3">Property Specialist</h6>
+                                <h6 class="subtitle mb-3"> Developer </h6>
                                 <p> A promising pro developer student, wields expertise with precision. Fueled by ambition, he pioneers intricate solutions, 
 				scripting success in the digital realm with skillful mastery.</p>
                                 <ul class="list-inline">
