@@ -71,6 +71,12 @@
             <i class="fa-solid fa-person-dress"></i>
             <span>Students</span></a>
     </li>
+    <!-- Nav Item - Instructos -->
+    <li class="nav-item">
+        <a class="nav-link" href="instructors.php">
+            <i class="fa-solid fa-person-dress"></i>
+            <span>Instructors</span></a>
+    </li>
     <!-- Nav Item - Sell report -->
     <li class="nav-item">
         <a class="nav-link" href="sellreports.php">
