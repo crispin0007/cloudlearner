@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Blog | Cloud Learner</title>
+    <title>Courses Dashboard | Cloud Learner</title>
 
     <!-- Custom fonts -->
 
@@ -52,20 +52,22 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Approve instructor</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Students</h1>
+                        <?php if (isset($student_alert_msg)) {
+                                echo $student_alert_msg;
+                            } ?>
 
                     </div>
                     <?php 
-                        $sql = "SELECT * FROM instructor WHERE status='0'";
+                        $sql = "SELECT * FROM student ";
                         $result = $conn -> query($sql);
                         if($result ->num_rows > 0){
                             echo '<table class="table align-middle mb-0 bg-white">
-                            <thead class="bg-light">
+                            <thead class    g-light">
                                 <tr>
-                                    <th>Instructor ID</th>
-                                    <th>Instructor Name</th>
-                                    <th>Instructor Email</th>
-                                    <th>Instructor Position</th>
+                                    <th>Student ID</th>
+                                    <th>Full Name</th>
+                                    <th>Email</th>
                                     <th>Status</th>
                                     <th>Actions</th>
                                 </tr>
@@ -75,38 +77,32 @@
                     while ($row = $result->fetch_assoc()) {
                         echo '<tr>
                                 <td>
-                                    <span class="badge badge-success rounded-pill d-inline">' . $row["instructor_id"] . '</span>
+                                    <span class="badge badge-success rounded-pill d-inline">' . $row["stu_id"] . '</span>
                                 </td>
                                 <td>
                                     <div class="d-flex align-items-center">
                                         <div class="ms-3">
-                                            <p class="fw-bold mb-1">' . $row["instructor_name"] . '</p>
+                                            <p class="fw-bold mb-1">' . $row["stu_name"] . '</p>
                                         </div>
                                     </div>
                                 </td>
                                 <td>
                                     <img src="" alt="Author Avatar" style="width: 45px; height: 45px" class="rounded-circle" />
-                                    <p class="fw-normal mb-1">' .$row["instructor_email"] . '</p>
+                                    <p class="fw-normal mb-1">' .$row["stu_email"] . '</p>
                                 </td>
                                 <td>
-                                    
-                                    <p class="fw-normal mb-1">' .$row["instructor_position"] . '</p>
+                                    <span class="badge badge-success rounded-pill d-inline"> Active </span>
                                 </td>
                                 <td>
-                                    <span class="badge badge-warning rounded-pill d-inline"> Pending </span>
-                                </td>
-                                <td>
-                                
-                                    <form action="" method="POST" class="d-inline">
-                                    <input type="hidden" name="id" value="'.$row["instructor_id"]. '">
-                                    <button type="submit" name="approveinstructor" value="approveinstructor" class="btn btn-success btn-circle">
-                                        <i class="fa-solid fa-check"></i>
-                                    </button>
-                                </form>
-                                </form>
+                                <form action="editstudent.php" method="POST" class="d-inline">
+                                <input type="hidden" name="id" value="' . $row["stu_id"] . '">
+                                <button type="submit" name="viewstudent" value="viewstudent" class="btn btn-primary btn-circle">
+                                    <i class="fa-regular fa-pen-to-square"></i>
+                                </button>
+                            </form>
                             
                                     <form action="" method="POST" class="d-inline">
-                                        <input type="hidden" name="id" value="' . $row["instructor_id"] . '">
+                                        <input type="hidden" name="id" value="' .$row["stu_id"] . '">
                                         <button type="submit" name="delete" value="Delete" class="btn btn-danger btn-circle">
                                             <i class="fas fa-trash"></i>
                                         </button>
@@ -119,31 +115,30 @@
                     echo '</tbody>
                         </table>';
                         }else{
-                            echo "No Approval instructor Remaining";
+                            echo "0 results";
                         };
                         // delete course 
                         if(isset($_REQUEST['delete'])){
-                            $sql = "DELETE FROM instructor WHERE instructor_id={$_REQUEST['id']}";
+                            $sql = "DELETE FROM student WHERE stu_id={$_REQUEST['id']}";
                             if($conn ->query($sql) == TRUE){
                                 echo '<meta http-equiv="refresh" content=0;URL=?deleted />';
                             }else{
                                 echo "Unable to delete data";
                             }
                         }
-                        if(isset($_REQUEST['approveinstructor'])){
-                            $sql = "UPDATE instructor SET  status='1' WHERE instructor_id={$_REQUEST['id']}";
-                            if($conn ->query($sql) == TRUE){
-                                echo '<div class="alert alert-success">instructor Approved</div>';
-                                echo '<meta http-equiv="refresh" content=0;URL=?approved />';
-                            }else{
-                                echo "Unable to Approve Post";
-                            }
-                        }
 
                         
                         ?>
 
-                    
+
+
+
+                    <div>
+                        <a href="addstudents.php" class="btn btn-primary btn-circle btn-lg "
+                            style="position: fixed;bottom: 10px;right: 20px;margin-bottom: 30px;">
+                            <i class="fas fa-plus fa-2x"></i>
+                        </a>
+                    </div>
 
                 </div>
                 <!-- /.container-fluid -->

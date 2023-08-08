@@ -12,17 +12,25 @@
             <div class="col-lg-10 col-md-10">
                 <?php
                 session_start();
-                if(isset($_SESSION['stu_is_login']) ) {
-                    echo'
-                    <a href="logout.php" class="bg-white site-btn header-btn text-danger">Logout </a>
+                if (isset($_SESSION['stu_is_login']) || isset($_SESSION['ins_is_login'])) {
+                    echo '
+                    <a href="logout.php" class="bg-white site-btn header-btn text-danger">Logout </a>';
+                    if (isset($_SESSION['stu_is_login'])) {
+                        echo '
                     <a href="Student/pages/dashboard.php" class="site-btn header-btn">My Profile</a>
                     ';
-                } else{
-                    echo'
+                    } elseif (isset($_SESSION['ins_is_login'])) {
+                        echo '
+                        <a href="Instructor/pages/dashboard.php" class="site-btn header-btn">My Profile</a>
+                        ';
+                    }
+                } else {
+                    echo '
                     <a href="login.php" class="bg-white site-btn header-btn text-danger">Login </a>
                     <a href="signup.php" class="site-btn header-btn">Sign Up</a>                    
                     ';
-                };
+                }
+                ;
                 ?>
                 <nav class="main-menu">
                     <ul>

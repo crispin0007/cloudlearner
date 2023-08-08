@@ -2,8 +2,7 @@
 <html lang="en">
 
 <head>
-
-    <title>About Us | CloudLearner</title>
+    <title>Log In | CloudLearner</title>
     <?php 
 	include 'elements/topheader.php'
 	?>
@@ -15,15 +14,15 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 90vh;
-        /* margin-top: 58px; */
+        height: 70vh;
     }
 
     .form-container {
         background-color: #fff;
-        padding: 20px;
+        padding: 40px;
         border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 0 10px rgba(0, 0, 0,
+                0.1);
         max-width: 400px;
         width: 100%;
     }
@@ -80,7 +79,6 @@
         }
     }
     </style>
-
     <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
@@ -94,7 +92,7 @@
         <div class="container">
             <div class="site-breadcrumb">
                 <a href="index.php">Home</a>
-                <span>Sign Up</span>
+                <span>Instructor Log In</span>
             </div>
         </div>
     </div>
@@ -102,40 +100,31 @@
 
     <!-- Form Start -->
     <div class="containers">
-
         <div class="form-container">
-            <h2>Student Signup</h2>
-            <form action="signup.php" method="post" id="regestrationform">
+            <h2>Instructor Login</h2>
+            <form action="instructor_login.php" method="post">
                 <div class="form-group">
-                    <label for="name">Name:</label>
-                    <input type="text" id="stuname" name="name" required>
-                    <samll id="statusmsg1"></samll>
+                    <input type="email" id="insLogEmail" class="form-control" />
+                    <label class="form-label" for="form2Example1">Email address</label>
                 </div>
                 <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" id="stuemail" name="email" required>
-                    <samll id="statusmsg2"></samll>
+                    <input type="password" id="insLogPass" class="form-control" />
+                    <label class="form-label" for="form2Example2">Password</label>
                 </div>
-                <div class="form-group">
-                    <label for="password">Password:</label>
-                    <input type="password" id="stupass" name="password" required>
-                    <samll id="statusmsg3"></samll>
+                <div class="form-group t" id="">
+                    <span id="statusLogMsg"></span>
+                    <button type="button" class="btn btn-danger bg-danger btn-block mb-4"
+                        onclick="checkInsLogin()">Signin</button>
+                        <a href="login.php" class="btn btn-success">Student Login</a>
                 </div>
-
-                <div class="form-group">
-                    <span id="successmessage"></sapn>
-                        <button type=" button" id="signup" class="bg-danger" onclick="addStu()">Signup</button>
-                        <a href="instructor_signup.php" class="btn btn-success mt-2">Instructor Signup</a>
-                </div>
-                <!-- <span id="successmessage"></span> -->
                 <div class=" form-group switch-form">
-                    Already have an account? <a href="login.php">Login</a>
+                    Don' t have an account? <a href="signup.php">Signup</a>
                 </div>
             </form>
         </div>
     </div>
-    <!-- Form End -->
-
+    
+    <!-- End Form Start -->
     <?php 
 	include 'elements/footer.php'
 	?>

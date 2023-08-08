@@ -74,7 +74,7 @@
 
                 <?php 
                 // Fetch course data from the database
-                $sql = "SELECT * FROM coursedetails WHERE status='1'"; 
+                $sql = "SELECT * FROM coursedetails WHERE status='1' AND instructor_id='1'"; 
                 $result = $conn->query($sql);
 
                 // Check if there are any courses in the database

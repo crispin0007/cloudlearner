@@ -3,7 +3,7 @@
 
 <head>
 
-    <title>About Us | CloudLearner</title>
+    <title>Instructor Signup| CloudLearner</title>
     <?php 
 	include 'elements/topheader.php'
 	?>
@@ -94,7 +94,7 @@
         <div class="container">
             <div class="site-breadcrumb">
                 <a href="index.php">Home</a>
-                <span>Sign Up</span>
+                <span>Instructor Sign Up</span>
             </div>
         </div>
     </div>
@@ -104,28 +104,28 @@
     <div class="containers">
 
         <div class="form-container">
-            <h2>Student Signup</h2>
+            <h2>Instructor Signup</h2>
             <form action="signup.php" method="post" id="regestrationform">
                 <div class="form-group">
                     <label for="name">Name:</label>
-                    <input type="text" id="stuname" name="name" required>
+                    <input type="text" id="insname" name="name" required>
                     <samll id="statusmsg1"></samll>
                 </div>
                 <div class="form-group">
                     <label for="email">Email:</label>
-                    <input type="email" id="stuemail" name="email" required>
+                    <input type="email" id="insemail" name="email" required>
                     <samll id="statusmsg2"></samll>
                 </div>
                 <div class="form-group">
                     <label for="password">Password:</label>
-                    <input type="password" id="stupass" name="password" required>
+                    <input type="password" id="inspass" name="password" required>
                     <samll id="statusmsg3"></samll>
                 </div>
 
                 <div class="form-group">
                     <span id="successmessage"></sapn>
-                        <button type=" button" id="signup" class="bg-danger" onclick="addStu()">Signup</button>
-                        <a href="instructor_signup.php" class="btn btn-success mt-2">Instructor Signup</a>
+                        <button type=" button" id="signup" class="bg-danger" onclick="addIns()">Signup</button>
+                        <a href="signup.php" class="btn btn-success mt-2">Student Signup</a>
                 </div>
                 <!-- <span id="successmessage"></span> -->
                 <div class=" form-group switch-form">

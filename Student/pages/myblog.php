@@ -56,7 +56,7 @@
 
                     </div>
                     <?php 
-                        $sql = "SELECT * FROM blog_posts WHERE stu_id='59'";
+                        $sql = "SELECT * FROM blog_posts WHERE stu_id='$stu_id'";
                         $result = $conn -> query($sql);
                         if($result ->num_rows > 0){
                             echo '<table class="table align-middle mb-0 bg-white">

@@ -73,3 +73,4 @@
 <script type="text/javascript" src="js/main.js"></script>
 <script type="text/javascript" src="js/ajaxrequest.js"></script>
 <script type="text/javascript" src="js/adminajaxrequest.js"></script>
+<script type="text/javascript" src="js/instructor.js"></script>

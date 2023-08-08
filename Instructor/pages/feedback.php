@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Blog | Cloud Learner</title>
+    <title>Feedback | Cloud Learner</title>
 
     <!-- Custom fonts -->
 
@@ -52,22 +52,21 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Approve instructor</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Feedback</h1>
 
                     </div>
                     <?php 
-                        $sql = "SELECT * FROM instructor WHERE status='0'";
+                        $sql = "SELECT * FROM feedback";
                         $result = $conn -> query($sql);
                         if($result ->num_rows > 0){
                             echo '<table class="table align-middle mb-0 bg-white">
                             <thead class="bg-light">
                                 <tr>
-                                    <th>Instructor ID</th>
-                                    <th>Instructor Name</th>
-                                    <th>Instructor Email</th>
-                                    <th>Instructor Position</th>
-                                    <th>Status</th>
-                                    <th>Actions</th>
+                                    <th>Feedback ID</th>
+                                    <th>Student ID</th>
+                                    <th>Student Name</th>
+                                    <th>Message</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>';
@@ -75,75 +74,60 @@
                     while ($row = $result->fetch_assoc()) {
                         echo '<tr>
                                 <td>
-                                    <span class="badge badge-success rounded-pill d-inline">' . $row["instructor_id"] . '</span>
+                                    <span class="badge badge-success rounded-pill d-inline">' . $row["feedback_id"] . '</span>
                                 </td>
                                 <td>
                                     <div class="d-flex align-items-center">
                                         <div class="ms-3">
-                                            <p class="fw-bold mb-1">' . $row["instructor_name"] . '</p>
+                                            <p class="fw-bold mb-1">' . $row["stu_id"] . '</p>
                                         </div>
                                     </div>
                                 </td>
                                 <td>
-                                    <img src="" alt="Author Avatar" style="width: 45px; height: 45px" class="rounded-circle" />
-                                    <p class="fw-normal mb-1">' .$row["instructor_email"] . '</p>
-                                </td>
-                                <td>
                                     
-                                    <p class="fw-normal mb-1">' .$row["instructor_position"] . '</p>
+                                    <p class="fw-normal mb-1">' .$row["stu_name"] . '</p>
                                 </td>
-                                <td>
-                                    <span class="badge badge-warning rounded-pill d-inline"> Pending </span>
-                                </td>
+                                
                                 <td>
                                 
-                                    <form action="" method="POST" class="d-inline">
-                                    <input type="hidden" name="id" value="'.$row["instructor_id"]. '">
-                                    <button type="submit" name="approveinstructor" value="approveinstructor" class="btn btn-success btn-circle">
-                                        <i class="fa-solid fa-check"></i>
-                                    </button>
-                                </form>
-                                </form>
-                            
-                                    <form action="" method="POST" class="d-inline">
-                                        <input type="hidden" name="id" value="' . $row["instructor_id"] . '">
+                                <div class="d-flex align-items-center">
+                                <div class="ms-3">
+                                    <p class="fw-bold mb-1">' . $row["message"] . '</p>
+                                </div>
+                            </div>
+                                    
+                                    
+                                </td> 
+                                 
+                                
+                                <td>
+                                <form action="" method="POST" class="d-inline">
+                                        <input type="hidden" name="id" value="' . $row["feedback_id"] . '">
                                         <button type="submit" name="delete" value="Delete" class="btn btn-danger btn-circle">
                                             <i class="fas fa-trash"></i>
                                         </button>
-                                    </form>
-                                    
+                                    </form>                                  
                                 </td> 
+
                             </tr>';
                     }
             
                     echo '</tbody>
                         </table>';
                         }else{
-                            echo "No Approval instructor Remaining";
+                            echo "0 results";
                         };
-                        // delete course 
                         if(isset($_REQUEST['delete'])){
-                            $sql = "DELETE FROM instructor WHERE instructor_id={$_REQUEST['id']}";
+                            $sql = "DELETE FROM feedback WHERE course_id={$_REQUEST['id']}";
                             if($conn ->query($sql) == TRUE){
                                 echo '<meta http-equiv="refresh" content=0;URL=?deleted />';
                             }else{
                                 echo "Unable to delete data";
                             }
                         }
-                        if(isset($_REQUEST['approveinstructor'])){
-                            $sql = "UPDATE instructor SET  status='1' WHERE instructor_id={$_REQUEST['id']}";
-                            if($conn ->query($sql) == TRUE){
-                                echo '<div class="alert alert-success">instructor Approved</div>';
-                                echo '<meta http-equiv="refresh" content=0;URL=?approved />';
-                            }else{
-                                echo "Unable to Approve Post";
-                            }
-                        }
-
-                        
                         ?>
 
-                    
+
 
                 </div>
                 <!-- /.container-fluid -->

@@ -115,6 +115,7 @@
                     <span id="statusLogMsg"></span>
                     <button type="button" class="btn btn-danger bg-danger btn-block mb-4"
                         onclick="checkStuLogin()">Signin</button>
+                        <a href="instructor_login.php" class="btn btn-success">Instructor Login</a>
                 </div>
                 <div class=" form-group switch-form">
                     Don' t have an account? <a href="signup.php">Signup</a>
