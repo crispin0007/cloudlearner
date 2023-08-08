@@ -140,7 +140,7 @@
                                 <div class="form-outline">
                                     <label for="courseimage">Upload Course Image</label>
                                     <input type="file" class="form-control-file" id="courseimage" name="courseimage"
-                                        accept="image/png, image/gif, image/jpeg">
+                                        accept="image/*">
                                 </div>
                             </div>
 

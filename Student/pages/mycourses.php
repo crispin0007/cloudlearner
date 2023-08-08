@@ -79,10 +79,10 @@
                                                 <div class="card-body ">
                                                 <h5 class="card-title">' . $row['course_title'] . '</h5>
                                                 <p class="card-text text-truncate">' . $row['coursedescription'] . '</p>
-                                                <a href="#" class="btn btn-outline-success">Author: ' . $row['author'] . '</a>
-                                                <a href="#" class="btn btn-outline-danger">Category: ' . $row['category'] .'</a>
-                                                <a href="#" class="btn btn-outline-warning">Duration: ' . $row['duration'] . '</a>
-                                                <a href="mylearning.php?course_id=' . $row['course_id'] . '" class="btn btn-primary btn-lg">Go To My Learning</a>
+                                                <a href="#" class="btn btn-outline-success mb-2">Author: ' . $row['author'] . '</a>
+                                                <a href="#" class="btn btn-outline-danger mb-2">Category: ' . $row['category'] .'</a>
+                                                <a href="#" class="btn btn-outline-warning mb-2">Duration: ' . $row['duration'] . '</a>
+                                                <a href="mylearning.php?course_id=' . $row['course_id'] . '" class="btn btn-primary btn-lg mb-2">Go To My Learning</a>
                                                 
                                             </div>
                                         </div>

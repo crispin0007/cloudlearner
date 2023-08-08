@@ -185,6 +185,12 @@
           $result = $conn->query($sql);
           $sql1 = "SELECT * FROM lesson WHERE course_id= '$course_id' LIMIT 1;";
           $result1 = $conn->query($sql1);
+          
+          
+            $_SESSION['course_id'] = $course_id;
+            // $_SESSION['course_title'] = $row['course_title'];
+        
+          
         }
         if ($result1->num_rows > 0) {
           $row1 = $result1->fetch_assoc();
@@ -241,18 +247,26 @@
         </div>
 
       </div>
+
+<!-- ==================================================================== -->
+
+
       <div class="video-list-container1 text-center">
         <div class="list bg-danger">
-<!-- =========================================================================================== -->
+
           <h3 class="list-title text-white">COMMENT</h3>
         </div>
         <!-- ================================== -->
         <!-- <div class="row d-flex justify-content-center"> -->
         <div class="form-outline mb-4">
-          <form>
-            <input type="text" id="addANote" class="form-control" placeholder="Type comment..." />
+          <form action="" method="POST">
+            <input type="hidden" id="std_id" class="form-control" value="$stu_name"/>
+            <input type="hidden" id="stu_id" class="form-control" value="$stu_id" />
+            <input type="hidden" id="stu_email" class="form-control" value="$stu_email" />
+            <input type="hidden" id="course_id" class="form-control" value="$course_id" />
+            <input type="text" id="addcomment" class="form-control" placeholder="Add Your Comment ..." />
             <label class="form-label" for="addANote"></label>
-            <button class="btn btn-success mt-2">+ Add a Comment</button>
+            <button class="btn btn-success mt-2" onclick="addComment()">+ Add a Comment</button>
           </form>
         </div>
         <hr>
