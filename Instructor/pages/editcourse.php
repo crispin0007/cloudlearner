@@ -63,7 +63,7 @@
             if(empty($_FILES['courseimage']['name'])){
                 
                 $img_folder =$_REQUEST['imagelocation1'];
-                $img_folder_location = str_replace('../../', '', '../../img/courseimg/'.$img_folder);
+                $img_folder_location = str_replace('../../', '', '../../'.$img_folder);
             }else{
                 $courseimage =$_FILES['courseimage']['name'];
                 $courseimagetemp =$_FILES['courseimage']['tmp_name'];
