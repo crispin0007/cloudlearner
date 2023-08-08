@@ -109,39 +109,25 @@
                             <button><i class="fa fa-search"></i></button>
                         </form>
                     </div>
+                    <?php $sql = "SELECT category FROM blog_posts"; ?>
                     <div class="sb-widget-item">
                         <h4 class="sb-w-title">Categories</h4>
                         <ul>
-                            <li><a href="#">Developement</a></li>
-                            <li><a href="#">Social Media</a></li>
-                            <li><a href="#">Press</a></li>
-                            <li><a href="#">Events & Lifestyle</a></li>
-                            <li><a href="#">Uncategorizes</a></li>
+                        <?php $sql = "SELECT * FROM blog_posts"; 
+                            $result = $conn->query($sql);
+                            if ($result->num_rows > 0) {
+                                while ($category = $result->fetch_assoc()) {
+                                    echo'<li><a href="#">';
+                                    echo $category['post_topic']; 
+                                    echo' </a></li>' ;}
+                        } else {
+                            echo "No Category found in the database.";
+                        }?>
+                            
                         </ul>
                     </div>
-                    <div class="sb-widget-item">
-                        <h4 class="sb-w-title">Archives</h4>
-                        <ul>
-                            <li><a href="#">February 2018</a></li>
-                            <li><a href="#">March 2018</a></li>
-                            <li><a href="#">April 2018</a></li>
-                            <li><a href="#">May 2018</a></li>
-                            <li><a href="#">June 2018</a></li>
-                        </ul>
-                    </div>
-                    <div class="sb-widget-item">
-                        <h4 class="sb-w-title">Archives</h4>
-                        <div class="tags">
-                            <a href="#">education</a>
-                            <a href="#">courses</a>
-                            <a href="#">development</a>
-                            <a href="#">design</a>
-                            <a href="#">on line courses</a>
-                            <a href="#">wp</a>
-                            <a href="#">html5</a>
-                            <a href="#">music</a>
-                        </div>
-                    </div>
+                    
+
                 
                 </div>
             </div>
@@ -150,20 +136,7 @@
     <!-- Page end -->
 
 
-    <!-- banner section -->
-    <section class="banner-section spad">
-        <div class="container">
-            <div class="section-title mb-0 pb-2">
-                <h2>Join Our Community Now!</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris
-                    scelerisque, at rutrum nulla dictum. Ut ac ligula sapien. Suspendisse cursus faucibus finibus.</p>
-            </div>
-            <div class="text-center pt-5">
-                <a href="#" class="site-btn">Register Now</a>
-            </div>
-        </div>
-    </section>
-    <!-- banner section end -->
+    
 
 
     <!-- footer section -->

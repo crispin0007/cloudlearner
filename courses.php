@@ -118,59 +118,6 @@
             </div>
 
 
-
-            <div class="featured-courses">
-                <div class="featured-course course-item">
-                    <div class="course-thumb set-bg" data-setbg="img/courses/f-1.jpg">
-                        <div class="price">Price: $15</div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-6 offset-lg-6 pl-0">
-                            <div class="course-info">
-                                <div class="course-text">
-                                    <div class="fet-note">Featured Course</div>
-                                    <h5>HTNL5 & CSS For Begginers</h5>
-                                    <p>Lorem ipsum dolor sit amet, consectetur. Phasellus sollicitudin et nunc eu
-                                        efficitur. Sed ligula nulla, molestie quis ligula in, eleifend rhoncus ipsum.
-                                        Donec ultrices, sem vel efficitur molestie, massa nisl posuere ipsum, ut
-                                        vulputate mauris ligula a metus. Aenean vel congue diam, sed bibendum ipsum.
-                                        Nunc vulputate aliquet tristique. Integer et pellentesque urna</p>
-                                    <div class="students">120 Students</div>
-                                </div>
-                                <div class="course-author">
-                                    <div class="ca-pic set-bg" data-setbg="img/authors/1.jpg"></div>
-                                    <p>William Parker, <span>Developer</span></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="featured-course course-item">
-                    <div class="course-thumb set-bg" data-setbg="img/courses/f-2.jpg">
-                        <div class="price">Price: $15</div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-6 pr-0">
-                            <div class="course-info">
-                                <div class="course-text">
-                                    <div class="fet-note">Featured Course</div>
-                                    <h5>HTNL5 & CSS For Begginers</h5>
-                                    <p>Lorem ipsum dolor sit amet, consectetur. Phasellus sollicitudin et nunc eu
-                                        efficitur. Sed ligula nulla, molestie quis ligula in, eleifend rhoncus ipsum.
-                                        Donec ultrices, sem vel efficitur molestie, massa nisl posuere ipsum, ut
-                                        vulputate mauris ligula a metus. Aenean vel congue diam, sed bibendum ipsum.
-                                        Nunc vulputate aliquet tristique. Integer et pellentesque urna</p>
-                                    <div class="students">120 Students</div>
-                                </div>
-                                <div class="course-author">
-                                    <div class="ca-pic set-bg" data-setbg="img/authors/2.jpg"></div>
-                                    <p>William Parker, <span>Developer</span></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
     <!-- course section end -->
