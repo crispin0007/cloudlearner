@@ -74,7 +74,7 @@
 
                 <?php 
                 // Fetch course data from the database
-                $sql = "SELECT * FROM coursedetails ORDER BY course_id DESC WHERE status='1'"; 
+                $sql = "SELECT * FROM coursedetails  WHERE status='1' ORDER BY course_id DESC"; 
                 $result = $conn->query($sql);
 
                 // Check if there are any courses in the database
