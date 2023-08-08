@@ -290,12 +290,12 @@ ol {
 }
 
 .header-btn {
-	float: right;
-	margin-right: 0;
+	/* float: right;
+	margin-right: 0; */
 }
 
 .nav-switch {
-	display: none;
+	/* display: none; */
 }
 
 /*------------------
@@ -1579,7 +1579,7 @@ ol {
 		font-size: 40px;
 	}
 	.header-btn {
-		display: none;
+		/* display: none; */
 	}
 	.nav-switch {
 		display: block;
