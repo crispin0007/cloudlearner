@@ -139,7 +139,7 @@
                 <!-- course -->
                 <?php
                 // Fetch course data from the database
-                $sql = "SELECT * FROM coursedetails WHERE status='1' LIMIT 8 ORDER BY course_id DESC"; // Replace 'your_table_name' with your actual table name.
+                $sql = "SELECT * FROM coursedetails WHERE status = '1' ORDER BY course_id DESC LIMIT 8"; // Replace 'your_table_name' with your actual table name.
                 $result = $conn->query($sql);
 
                 // Check if there are any courses in the database
