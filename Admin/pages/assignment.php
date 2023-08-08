@@ -201,7 +201,7 @@
                             echo '</tbody>
                         </table>';
                         } else {
-                            echo "No Lesons found. Add Lesson to The Course";
+                            echo "No Assignment found. Add Assignment to The Course";
                         }
                         ; // delete course 
                         if (isset($_REQUEST['delete'])) {
