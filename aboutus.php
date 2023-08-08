@@ -52,8 +52,9 @@
                             <div class="pt-2">
                                 <h5 class="mt-4 font-weight-medium mb-0">Sudip Sharma</h5>
                                 <h6 class="subtitle mb-3">Property Specialist</h6>
-                                <p>You can relay on our amazing features list and also our customer services will be
-                                    great experience.</p>
+                                <p>the frontend developer stands as a creative visionary. Skillfully wielding HTML, CSS, and JavaScript, they craft captivating user interfaces, 
+					translating design concepts into interactive realities. 
+				Their code expertise and design sensibilities combine to elevate user experiences and breathe life into digital landscapes.</p>
                                 <ul class="list-inline">
                                     <li class="list-inline-item"><a href="#"
                                             class="text-decoration-none d-block px-1"><i
@@ -86,8 +87,8 @@
                             <div class="pt-2">
                                 <h5 class="mt-4 font-weight-medium mb-0">Lalit chaudhary</h5>
                                 <h6 class="subtitle mb-3">Property Specialist</h6>
-                                <p>You can relay on our amazing features list and also our customer services will be
-                                    great experience.</p>
+                                <p> A promising pro developer student, wields expertise with precision. Fueled by ambition, he pioneers intricate solutions, 
+				scripting success in the digital realm with skillful mastery.</p>
                                 <ul class="list-inline">
                                     <li class="list-inline-item"><a href="#"
                                             class="text-decoration-none d-block px-1"><i
@@ -119,9 +120,9 @@
                         <div class="col-md-12 text-center">
                             <div class="pt-2">
                                 <h5 class="mt-4 font-weight-medium mb-0">Solon timalsina</h5>
-                                <h6 class="subtitle mb-3">Property Specialist</h6>
-                                <p>You can relay on our amazing features list and also our customer services will be
-                                    great experience.</p>
+                                <h6 class="subtitle mb-3">UI/UX</h6>
+                                <p>budding Ui/UX designer, melds creativity and empathy to envision user-centric interfaces. 
+				With an eye for aesthetics and a passion for seamless experiences, he shapes digital journeys.</p>
                                 <ul class="list-inline">
                                     <li class="list-inline-item"><a href="#"
                                             class="text-decoration-none d-block px-1"><i
@@ -153,9 +154,9 @@
                         <div class="col-md-12 text-center">
                             <div class="pt-2">
                                 <h5 class="mt-4 font-weight-medium mb-0">Sabina Mahato</h5>
-                                <h6 class="subtitle mb-3">Property Specialist</h6>
-                                <p>You can relay on our amazing features list and also our customer services will be
-                                    great experience.</p>
+                                <h6 class="subtitle mb-3">UI/UX</h6>
+                                <p>budding Ui/UX designer, melds creativity and empathy to envision user-centric interfaces. 
+				With an eye for aesthetics and a passion for seamless experiences, he shapes digital journeys.</p>
                                 <ul class="list-inline">
                                     <li class="list-inline-item"><a href="#"
                                             class="text-decoration-none d-block px-1"><i
@@ -187,9 +188,9 @@
                         <div class="col-md-12 text-center">
                             <div class="pt-2">
                                 <h5 class="mt-4 font-weight-medium mb-0">Rabina lamichhane</h5>
-                                <h6 class="subtitle mb-3">Property Specialist</h6>
-                                <p>You can relay on our amazing features list and also our customer services will be
-                                    great experience.</p>
+                                <h6 class="subtitle mb-3">Developer</h6>
+                                <p>A dedicated developer student, dives into code's realm, crafting solutions with innovation. 
+					Curious and persistent, he forges the future one line at a time.</p>
                                 <ul class="list-inline">
                                     <li class="list-inline-item"><a href="#"
                                             class="text-decoration-none d-block px-1"><i
@@ -221,9 +222,9 @@
                         <div class="col-md-12 text-center">
                             <div class="pt-2">
                                 <h5 class="mt-4 font-weight-medium mb-0">yanki tamang</h5>
-                                <h6 class="subtitle mb-3">Property Specialist</h6>
-                                <p>You can relay on our amazing features list and also our customer services will be
-                                    great experience.</p>
+                                <h6 class="subtitle mb-3">Developer</h6>
+                                <p>A dedicated developer student, dives into code's realm, crafting solutions with innovation. 
+				Curious and persistent, he forges the future one line at a time.</p>
                                 <ul class="list-inline">
                                     <li class="list-inline-item"><a href="#"
                                             class="text-decoration-none d-block px-1"><i
