@@ -242,9 +242,9 @@
 
       </div>
       <div class="video-list-container1 text-center">
-        <div class="list text-center">
+        <div class="list bg-danger">
 <!-- =========================================================================================== -->
-          <h3 class="list-title text-center">COMMENT</h3>
+          <h3 class="list-title text-white">COMMENT</h3>
         </div>
         <!-- ================================== -->
         <!-- <div class="row d-flex justify-content-center"> -->

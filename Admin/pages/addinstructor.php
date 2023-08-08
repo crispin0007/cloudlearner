@@ -40,7 +40,7 @@
             $inspos = $_REQUEST['inspos'];
 
 
-            $sql = "INSERT INTO Instructor (instructor_name, instructor_email, instructor_pass, instructor_position, status) 
+            $sql = "INSERT INTO instructor (instructor_name, instructor_email, instructor_pass, instructor_position, status) 
             VALUES ('$insname', '$insemail', '$inspass', '$inspos','1') ";
             if ($conn->query($sql) == TRUE) {
                 $alert_msg = '<div class="alert alert-success">Instructor Added Successfully</div>';
