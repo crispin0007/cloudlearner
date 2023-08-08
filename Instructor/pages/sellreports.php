@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Sell Reports Dashboard | Cloud Learner</title>
+    <title>Courses Dashboard | Cloud Learner</title>
 
     <!-- Custom fonts -->
 
@@ -24,14 +24,16 @@
 </head>
 
 <body id="page-top">
-
+    <?php include('../../database.php');
+     include('../elements/session.php');   
+    ?>
     <!-- Page Wrapper -->
     <div id="wrapper">
 
         <!-- Sidebar -->
         <?php
-        include('../elements/sidebar.php')
-            ?>
+                include('../elements/sidebar.php')
+                ?>
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -43,43 +45,49 @@
                 <!-- Topbar -->
                 <?php
                 include('../elements/topnavbar.php')
-                    ?>
+                ?>
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
+                <?php if (isset($student_alert_msg)) {
+                                echo $student_alert_msg;} 
+                                
+                                // WHERE py.stu_email = '$stuLogEmail' AND py.status = 'success'";    
+
+                                $sql = "SELECT py.stu_id, py.stu_email, py.course_id, py.amount, py.course_title, c.instructor_id, 
+                                c.course_id, py.order_id, py.order_number FROM payment AS py JOIN coursedetails AS c ON c.course_id = py.course_id 
+                                WHERE c.instructor_id = '2' AND py.status = 'success'  ;";
+                                $result = $conn->query($sql);
+                                
+                                ?>
 
                     <!-- Page Heading -->
-
-                    <?php
-
-                    $sql = "SELECT * FROM payment";
-                    $result = $conn->query($sql);
-                    $total_amount = mysqli_fetch_assoc($conn->query("SELECT SUM(amount) FROM payment"))["SUM(amount)"] / 100;
-                    echo '
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                    <?php echo '
                         <div class="d-sm-flex align-items-center justify-content-between mb-4">
                             <h1 class="h3 mb-0 text-gray-800">Sell Reports</h1>
-                            <div class="btn btn-outline-success btn-lg">Total Order:' . $result->num_rows . '</div>
-                            <div class="btn btn-outline-primary btn-lg">Total Sales: ' . $total_amount . '</div>
-                        </div>
-                        ';
-                    if ($result->num_rows > 0) {
-                        echo '<table class="table align-middle mb-0 bg-white">
-                            <thead class="bg-light">
+                        </div>';
+                        ?>
+                    </div>
+                    <?php 
+                        
+                        if($result ->num_rows > 0){
+                            echo '<table class="table align-middle mb-0 bg-white">
+                            <thead class    bg-light">
                                 <tr>
                                     <th>Order ID</th>
                                     <th>Order Number</th>
-                                    <th>Order Date</th>
-                                    <th>Status</th>
-                                    <th>Amount</th>
-                                    <th>Course ID</th>
                                     <th>Student ID</th>
-                                    <th>Action</th>
+                                    <th>Student Email</th>
+                                    <th>Course ID</th>
+                                    <th>Course Title</th>
+                                    <th>Amount</th>
                                 </tr>
                             </thead>
                             <tbody>';
-
-                        while ($row = $result->fetch_assoc()) {
-                            echo '<tr>
+            
+                    while ($row = $result->fetch_assoc()) {
+                        echo '<tr>
                                 <td>
                                     <span class="badge badge-success rounded-pill d-inline">' . $row["order_id"] . '</span>
                                 </td>
@@ -91,54 +99,47 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <p class="fw-normal mb-1">' . $row["date"] . '</p>
+                                    <span class="badge badge-success rounded-pill d-inline">' . $row["stu_id"] . '</span>
                                 </td>
                                 <td>
-                                    <span class="badge badge-success rounded-pill d-inline"> ' . $row["status"] . ' </span>
+                                    <div class="d-flex align-items-center">
+                                        <div class="ms-3">
+                                            <p class="fw-bold mb-1">' . $row["stu_email"] . '</p>
+                                        </div>
+                                    </div>
                                 </td>
                                 <td>
-                                <p class="fw-normal mb-1">' . $row["amount"] / 100 . '  </p>
-                                </td>
-                                <td>
-                                    <span class="badge badge-success rounded-pill d-inline"> ' . $row["course_id"] . ' </span>
-                                </td>
-                                <td>
-                                    <span class="badge badge-success rounded-pill d-inline"> ' . $row["stu_id"] . ' </span>
-                                </td>
-                                <td>
-                                
-                            
-                                    <form action="" method="POST" class="d-inline">
-                                        <input type="hidden" name="id" value="' . $row["order_id"] . '">
-                                        <button type="submit" name="delete" value="Delete" class="btn btn-danger btn-circle">
-                                            <i class="fas fa-trash"></i>
-                                        </button>
-                                    </form>
                                     
-                                </td> 
+                                    <p class="fw-normal mb-1">' .$row["course_id"] . '</p>
+                                </td>
+                                <td>
+                                    
+                                    <p class="fw-normal mb-1">' .$row["course_title"] . '</p>
+                                </td>
+                                <td>
+                                    <p class="fw-normal mb-1">' .$row["amount"]/100 . '</p>
+                                </td>
+                               
                             </tr>';
-                        }
-
-                        echo '</tbody>
+                    }
+            
+                    echo '</tbody>
                         </table>';
-                    } else {
-                        echo "0 results";
-                    }
-                    ;
-                    // delete course 
-                    if (isset($_REQUEST['delete'])) {
-                        $sql = "DELETE FROM blog_posts WHERE post_id={$_REQUEST['id']}";
-                        if ($conn->query($sql) == TRUE) {
-                            echo '<meta http-equiv="refresh" content=0;URL=?deleted />';
-                        } else {
-                            echo "Unable to delete data";
+                        }else{
+                            echo "0 results";
+                        };
+                        // delete course 
+                        if(isset($_REQUEST['delete'])){
+                            $sql = "DELETE FROM student WHERE stu_id={$_REQUEST['id']}";
+                            if($conn ->query($sql) == TRUE){
+                                echo '<meta http-equiv="refresh" content=0;URL=?deleted />';
+                            }else{
+                                echo "Unable to delete data";
+                            }
                         }
-                    }
 
-
-                    ?>
-
-                    <!-- content body Begin Here -->
+                        
+                        ?>
 
 
                 </div>
@@ -149,7 +150,7 @@
 
             <!-- Footer -->
             <?php
-            include('../elements/footer.php')
+                include('../elements/footer.php')
                 ?>
             <!-- End of Footer -->
 
@@ -160,13 +161,13 @@
     <!-- End of Page Wrapper -->
 
     <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
+    <a class=" scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
 
 
 
-    <?php include('../elements/jsfile.php') ?>
+    <?php include('../elements/jsfile.php')    ?>
 
 
 </body>

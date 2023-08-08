@@ -185,7 +185,7 @@
   if ($result1->num_rows > 0) {
     $row1 = $result1->fetch_assoc();
   echo'<div class="container">
-  <div class="h3 text-success font-weight-bold ">Course Title: ' . $row1['course_name'] . '</div>
+  <div class="h3 text-dark font-weight-bold ">Course Title: ' . $row1['course_name'] . '</div>
   </div>
   <div class="container1">';
   
@@ -214,6 +214,39 @@
   </div>
   
   </div>
+  
+  <div class="container">
+   <hr>
+  <div class="h3 text-danger font-weight-bold">COURSE RELEATED STUFF: </div>
+</div>
+
+<hr>
+<div class="container1">
+<div class="video-list-container1">
+    <div class="list ">
+      
+      <h3 class="list-title">ASSIGNMENT</h3>
+    </div>
+    
+  </div>
+
+  <div class="video-list-container1">
+    <div class="list text-center">
+      
+      <h3 class="list-title">FEEDBACK</h3>
+    </div>
+    
+  </div>
+  <div class="video-list-container1 text-center">
+    <div class="list text-center">
+      
+      <h3 class="list-title text-center">COMMENT</h3>
+    </div>
+    
+  </div>
+</div>
+
+  
 
   <script>
   let videoList = document.querySelectorAll('.video-list-container1 .list');

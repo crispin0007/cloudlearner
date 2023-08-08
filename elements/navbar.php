@@ -10,32 +10,33 @@
                 </div>
             </div>
             <div class="col-lg-10 col-md-10">
-                
-                <nav class="main-menu">
-               
-                    <ul>
-                    <?php
+            <?php
                 session_start();
                 if (isset($_SESSION['stu_is_login']) || isset($_SESSION['ins_is_login'])) {
                     echo '
-                    <li><a href="logout.php" class="bg-white site-btn header-btn text-danger">Logout </a> </li>';
+                    <a href="logout.php" class="bg-white site-btn header-btn text-danger">Logout </a> ';
                     if (isset($_SESSION['stu_is_login'])) {
                         echo '
-                        <li><a href="Student/pages/dashboard.php" class="site-btn header-btn">My Profile</a></li>
+                        <a href="Student/pages/dashboard.php" class="site-btn header-btn">My Profile</a>
                     ';
                     } elseif (isset($_SESSION['ins_is_login'])) {
                         echo '
-                        <li>  <a href="Instructor/pages/dashboard.php" class="site-btn header-btn">My Profile</a></li>
+                          <a href="Instructor/pages/dashboard.php" class="site-btn header-btn">My Profile</a>
                         ';
                     }
                 } else {
                     echo '
-                    <li> <a href="login.php" class="bg-white site-btn header-btn text-danger" >Login </a></li>
-                    <li>  <a href="signup.php" class="site-btn header-btn">Sign Up</a>  </li>                  
+                     <a href="login.php" class="bg-white site-btn header-btn text-danger" >Login </a>
+                      <a href="signup.php" class="site-btn header-btn">Sign Up</a>                    
                     ';
                 }
                 ;
-                ?>
+                ?>  
+                <nav class="main-menu">
+                
+               
+                    <ul>
+                    
                         <li><a href="index.php">Home</a></li>
                         <li><a href="aboutus.php">About us</a></li>
                         <li><a href="courses.php">Courses</a></li>

@@ -40,12 +40,7 @@
             <span>My Courses</span>
         </a>
     </li>
-    <!-- Nav Item - Feedback -->
-    <li class="nav-item">
-        <a class="nav-link" href="feedback.php">
-            <i class="fa-solid fa-comment"></i>
-            <span>Feedback</span></a>
-    </li>
+    
     <!-- Nav Item - Add blog -->
     <li class="nav-item">
         <a class="nav-link" href="addblog.php">
