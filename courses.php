@@ -46,7 +46,7 @@
                 <li class="control" data-filter=".AWS">AWS</li>
                 <li class="control" data-filter=".Azure">AZURE</li>
                 <li class="control" data-filter=".GCP">GCP</li>
-                <li class="control" data-filter=".cloud-computing">Cloud Computing</li>
+                <li class="control" data-filter=".cloudcomputing">Cloud Computing</li>
             </ul>
             <div class="row course-items-area">
 

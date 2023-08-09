@@ -96,12 +96,7 @@
             <i class="fa-solid fa-comment"></i>
             <span>Feedback</span></a>
     </li>
-    <!-- Nav Item - Change Password -->
-    <li class="nav-item">
-        <a class="nav-link" href="changepassword.php">
-            <i class="fa-solid fa-lock"></i>
-            <span>Change Password</span></a>
-    </li>
+    
     <!-- Nav Item - Logout -->
     <li class="nav-item">
         <a class="nav-link" data-toggle="modal" data-target="#logoutModal">
