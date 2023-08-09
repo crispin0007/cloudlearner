@@ -179,53 +179,47 @@
         </style>
 
         <?php
-        if (isset($_GET['course_id'])) {
+        if ((isset($_GET['course_id'])) && isset($stuLogEmail) ) {
           $course_id = $_GET['course_id'];
-          $sql = "SELECT * FROM lesson WHERE course_id= '$course_id' ";
-          $result = $conn->query($sql);
-          $sql1 = "SELECT * FROM lesson WHERE course_id= '$course_id' LIMIT 1;";
-          $result1 = $conn->query($sql1);
-
-
-          $_SESSION['course_id'] = $course_id;
-          // $_SESSION['course_title'] = $row['course_title'];
-        
-
-        }
-        if ($result1->num_rows > 0) {
-          $row1 = $result1->fetch_assoc();
-          echo '<div class="container">
-  <div class="h3 text-dark font-weight-bold ">Course Title: ' . $row1['course_name'] . '</div>
-  </div>
-  <div class="container1">';
-
-
-
-          echo '
-  
-  <div class="main-video-container1">
-    <video src="' . $row1['lesson_link'] . '" loop controls class="main-video"></video>
-    <h3 class="main-vid-title">' . $row1['lesson_name'] . '</h3>
-  </div>';
-        }
-
-
-        echo '<div class="video-list-container1">';
-        while ($row = $result->fetch_assoc()) {
-          echo '
-      <div class="list active">
-      <video src="' . $row['lesson_link'] . '" class="list-video"></video>
-      <h3 class="list-title">' . $row['lesson_name'] . '</h3>';
-
-          echo '  </div>';
-        }
-        ?>
-
+          $check_query = "SELECT py.order_id
+          FROM payment AS py
+          JOIN coursedetails AS c ON '$course_id'= py.course_id
+          WHERE py.stu_email = '$stuLogEmail' AND py.status = 'success'";
+          $check_query_run = $conn ->query($check_query);
+          if ($check_query_run -> num_rows>0){
+            $sql = "SELECT * FROM lesson WHERE course_id= '$course_id' ";
+            $result = $conn->query($sql);
+            $sql1 = "SELECT * FROM lesson WHERE course_id= '$course_id' LIMIT 1;";
+            $result1 = $conn->query($sql1);
+            if ($result1->num_rows > 0) {
+              $row1 = $result1->fetch_assoc();
+              echo '<div class="container">
+      <div class="h3 text-dark font-weight-bold ">Course Title: ' . $row1['course_name'] . '</div>
       </div>
-
-    </div>
-
-    <div class="container">
+      <div class="container1">';
+    
+    
+    
+              echo '
+      
+      <div class="main-video-container1">
+        <video src="' . $row1['lesson_link'] . '" loop controls class="main-video"></video>
+        <h3 class="main-vid-title">' . $row1['lesson_name'] . '</h3>
+      </div>';
+            }
+    
+    
+            echo '<div class="video-list-container1">';
+            while ($row = $result->fetch_assoc()) {
+              echo '
+          <div class="list active">
+          <video src="' . $row['lesson_link'] . '" class="list-video"></video>
+          <h3 class="list-title">' . $row['lesson_name'] . '</h3>';
+    
+              echo '  </div>';
+            }
+?>
+<div class="container">
       <hr>
       <div class="h3 text-danger font-weight-bold text-center">COURSE RELEATED STUFF: </div>
     </div>
@@ -234,19 +228,36 @@
     <div class="container1">
       <div class="video-list-container1">
         <div class="list bg-danger ">
-
           <h3 class="list-title text-white">ASSIGNMENT</h3>
         </div>
-
-      </div>
-
-      <div class="video-list-container1">
-        <div class="list bg-danger">
-
-          <h3 class="list-title text-white">FEEDBACK</h3>
+        <!-- <div class="row d-flex justify-content-center"> -->
+              <div class="card mt-2">
+          <div class="card-body">
+            <?php 
+            $sql = "SELECT * FROM assignment  WHERE course_id='$course_id' ";
+            $result = $conn->query($sql);
+            if ($result->num_rows > 0) {
+              while ($assignment = $result->fetch_assoc()) {
+            ?>
+            <div class="d-flex justify-content-between m-2">
+              <div class="d-flex flex-row align-items-center">
+                <a href="" class="btn btn-primary mr-2">Download Task</a>
+                <p class="small mb-0 ms-2"><?php echo $assignment['assignment_name']; ?></p>
+              </div>
+            </div>
+            <?php
+                    }
+                } else {
+                    echo "No Assignment found for the Course.";
+                } ?>
+          </div>
         </div>
-
       </div>
+      <!-- </div> -->
+
+
+      <!-- </div> -->
+
 
       <!-- ==================================================================== -->
 
@@ -283,6 +294,29 @@
         </div>
       </div>
       <!-- </div> -->
+<?php
+
+
+
+          }else{
+            echo '<div class="container1">You Are Not Enrolled In Course</div>';
+          }
+          
+
+
+          $_SESSION['course_id'] = $course_id;
+          // $_SESSION['course_title'] = $row['course_title'];
+        
+
+        }
+        
+        ?>
+
+      </div>
+
+    </div>
+
+    
 
 
 

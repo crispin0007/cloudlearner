@@ -89,12 +89,7 @@
             <i class="fa-brands fa-blogger-b"></i>
             <span>Blog Post</span></a>
     </li>
-    <!-- Nav Item - Payment Status -->
-    <li class="nav-item">
-        <a class="nav-link" href="paymentstatus.php">
-            <i class="fa-solid fa-credit-card"></i>
-            <span>Payment Status</span></a>
-    </li>
+    
     <!-- Nav Item - Feedback -->
     <li class="nav-item">
         <a class="nav-link" href="feedback.php">
