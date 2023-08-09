@@ -36,11 +36,10 @@
                 ?>
                 <nav class="main-menu">
                     <ul>
-                        <li><a href="index.php">Home</a></li>
-                        <li><a href="aboutus.php">About us</a></li>
-                        <li><a href="courses.php">Courses</a></li>
-                        <li><a href="blog.php">News</a></li>
-                        <li><a href="contact.php">Contact</a></li>
+                        <li><a href="index.php">HOME</a></li>
+                        <li><a href="aboutus.php">ABOUT Us</a></li>
+                        <li><a href="courses.php">COURSE</a></li>
+                        <li><a href="blog.php">BLOGS</a></li>
                     </ul>
                 </nav>
             </div>
