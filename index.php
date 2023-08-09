@@ -57,8 +57,8 @@
                         <div class="ci-thumb set-bg" data-setbg="img/categories/1.jpg"></div>
                         <div class="ci-text">
                             <h5>IT Development</h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur</p>
-                            <span>120 Courses</span>
+                            <p>Businesses are migrating to the cloud for improved scalability and efficiency.</p>
+                            <span>5 Courses</span>
                         </div>
                     </div>
                 </div>
@@ -68,8 +68,8 @@
                         <div class="ci-thumb set-bg" data-setbg="img/categories/2.jpg"></div>
                         <div class="ci-text">
                             <h5>Web Design</h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur</p>
-                            <span>70 Courses</span>
+                            <p>Web design combines aesthetics and functionality to create engaging websites.</p>
+                            <span>3 Courses</span>
                         </div>
                     </div>
                 </div>
@@ -78,9 +78,9 @@
                     <div class="categorie-item">
                         <div class="ci-thumb set-bg" data-setbg="img/categories/3.jpg"></div>
                         <div class="ci-text">
-                            <h5>Illustration & Drawing</h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur</p>
-                            <span>55 Courses</span>
+                            <h5>Cloud Computing</h5>
+                            <p>Cloud technology enables remote access to data and applications seamlessly.</p>
+                            <span>5 Courses</span>
                         </div>
                     </div>
                 </div>
@@ -89,9 +89,9 @@
                     <div class="categorie-item">
                         <div class="ci-thumb set-bg" data-setbg="img/categories/4.jpg"></div>
                         <div class="ci-text">
-                            <h5>Social Media</h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur</p>
-                            <span>40 Courses</span>
+                            <h5>Amazon Cloud</h5>
+                            <p>Using the cloud, we can collaborate on projects from anywhere.</p>
+                            <span>3 Courses</span>
                         </div>
                     </div>
                 </div>
@@ -100,9 +100,9 @@
                     <div class="categorie-item">
                         <div class="ci-thumb set-bg" data-setbg="img/categories/5.jpg"></div>
                         <div class="ci-text">
-                            <h5>Photoshop</h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur</p>
-                            <span>220 Courses</span>
+                            <h5>Programming</h5>
+                            <p>Programming empowers us to create software and automate complex tasks.</p>
+                            <span>2 Courses</span>
                         </div>
                     </div>
                 </div>
@@ -111,9 +111,9 @@
                     <div class="categorie-item">
                         <div class="ci-thumb set-bg" data-setbg="img/categories/6.jpg"></div>
                         <div class="ci-text">
-                            <h5>Cryptocurrencies</h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur</p>
-                            <span>25 Courses</span>
+                            <h5>HTML CSS JS</h5>
+                            <p>HTML and CSS are essential for designing and styling websites.</p>
+                            <span>1 Courses</span>
                         </div>
                     </div>
                 </div>
