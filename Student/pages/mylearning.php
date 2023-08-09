@@ -179,14 +179,14 @@
         </style>
 
         <?php
-        if ((isset($_GET['course_id'])) && isset($stuLogEmail) ) {
+        if ((isset($_GET['course_id'])) && isset($stuLogEmail)) {
           $course_id = $_GET['course_id'];
           $check_query = "SELECT py.order_id
           FROM payment AS py
           JOIN coursedetails AS c ON '$course_id'= py.course_id
           WHERE py.stu_email = '$stuLogEmail' AND py.status = 'success'";
-          $check_query_run = $conn ->query($check_query);
-          if ($check_query_run -> num_rows>0){
+          $check_query_run = $conn->query($check_query);
+          if ($check_query_run->num_rows > 0) {
             $sql = "SELECT * FROM lesson WHERE course_id= '$course_id' ";
             $result = $conn->query($sql);
             $sql1 = "SELECT * FROM lesson WHERE course_id= '$course_id' LIMIT 1;";
@@ -197,9 +197,9 @@
       <div class="h3 text-dark font-weight-bold ">Course Title: ' . $row1['course_name'] . '</div>
       </div>
       <div class="container1">';
-    
-    
-    
+
+
+
               echo '
       
       <div class="main-video-container1">
@@ -207,101 +207,104 @@
         <h3 class="main-vid-title">' . $row1['lesson_name'] . '</h3>
       </div>';
             }
-    
-    
+
+
             echo '<div class="video-list-container1">';
             while ($row = $result->fetch_assoc()) {
               echo '
           <div class="list active">
           <video src="' . $row['lesson_link'] . '" class="list-video"></video>
           <h3 class="list-title">' . $row['lesson_name'] . '</h3>';
-    
+
               echo '  </div>';
             }
-?>
-<div class="container">
-      <hr>
-      <div class="h3 text-danger font-weight-bold text-center">COURSE RELEATED STUFF: </div>
-    </div>
-
-    <hr>
-    <div class="container1">
-      <div class="video-list-container1">
-        <div class="list bg-danger ">
-          <h3 class="list-title text-white">ASSIGNMENT</h3>
-        </div>
-        <!-- <div class="row d-flex justify-content-center"> -->
-              <div class="card mt-2">
-          <div class="card-body">
-            <?php 
-            $sql = "SELECT * FROM assignment  WHERE course_id='$course_id' ";
-            $result = $conn->query($sql);
-            if ($result->num_rows > 0) {
-              while ($assignment = $result->fetch_assoc()) {
             ?>
-            <div class="d-flex justify-content-between m-2">
-              <div class="d-flex flex-row align-items-center">
-                <a href="<?php echo $assignment['doc_location']; ?>" class="btn btn-primary mr-2">Download Task</a>
-                <p class="small mb-0 ms-2"><?php echo $assignment['assignment_name']; ?></p>
-              </div>
             </div>
-            <?php
-                    }
-                } else {
-                    echo "No Assignment found for the Course.";
-                } ?>
-          </div>
-        </div>
-      </div>
-      <!-- </div> -->
-
-
-      <!-- </div> -->
-
-
-      <!-- ==================================================================== -->
-
-
-      <div class="video-list-container1 text-center">
-        <div class="list bg-danger">
-
-          <h3 class="list-title text-white">COMMENT</h3>
-        </div>
-        <!-- ================================== -->
-        <!-- <div class="row d-flex justify-content-center"> -->
-        <div class="form-outline mb-4">
-          <form action="" method="POST">
-            <input type="hidden" id="std_id" class="form-control" value="$stu_name" />
-            <input type="hidden" id="stu_id" class="form-control" value="$stu_id" />
-            <input type="hidden" id="stu_email" class="form-control" value="$stu_email" />
-            <input type="hidden" id="course_id" class="form-control" value="$course_id" />
-            <input type="text" id="addcomment" class="form-control" placeholder="Add Your Comment ..." />
-            <label class="form-label" for="addANote"></label>
-            <button class="btn btn-success mt-2" onclick="addComment()">+ Add a Comment</button>
-          </form>
-        </div>
-        <hr>
-        <div class="card mt-2">
-          <div class="card-body">
-            <p>Type your note, and hit enter to add it</p>
-            <div class="d-flex justify-content-between">
-              <div class="d-flex flex-row align-items-center">
-                <img src="../../img/profilepic/IMG20230511101100.jpg" alt="avatar" width="25" height="25" />
-                <p class="small mb-0 ms-2">Johny</p>
-              </div>
+            <div class="container">
+              <hr>
+              <div class="h3 text-danger font-weight-bold text-center">COURSE RELEATED STUFF: </div>
             </div>
-          </div>
-        </div>
-      </div>
-      <!-- </div> -->
-<?php
+
+            <hr>
+            <div class="container1">
+              <div class="video-list-container1">
+                <div class="list bg-danger ">
+                  <h3 class="list-title text-white">ASSIGNMENT</h3>
+                </div>
+                <!-- <div class="row d-flex justify-content-center"> -->
+                <div class="card mt-2">
+                  <div class="card-body">
+                    <?php
+                    $sql = "SELECT * FROM assignment  WHERE course_id='$course_id' ";
+                    $result = $conn->query($sql);
+                    if ($result->num_rows > 0) {
+                      while ($assignment = $result->fetch_assoc()) {
+                        ?>
+                        <div class="d-flex justify-content-between m-2">
+                          <div class="d-flex flex-row align-items-center">
+                            <a href="<?php echo $assignment['doc_location']; ?>" class="btn btn-primary mr-2">Download Task</a>
+                            <p class="small mb-0 ms-2">
+                              <?php echo $assignment['assignment_name']; ?>
+                            </p>
+                          </div>
+                        </div>
+                        <?php
+                      }
+                    } else {
+                      echo "No Assignment found for the Course.";
+                    } ?>
+                  </div>
+                </div>
+              </div>
+              <!-- </div> -->
+
+
+              <!-- </div> -->
+
+
+              <!-- ==================================================================== -->
+
+
+              <div class="video-list-container1 text-center">
+                <div class="list bg-danger">
+
+                  <h3 class="list-title text-white">COMMENT</h3>
+                </div>
+                <!-- ================================== -->
+                <!-- <div class="row d-flex justify-content-center"> -->
+                <div class="form-outline mb-4">
+                  <form action="" method="POST">
+                    <input type="hidden" id="std_id" class="form-control" value="$stu_name" />
+                    <input type="hidden" id="stu_id" class="form-control" value="$stu_id" />
+                    <input type="hidden" id="stu_email" class="form-control" value="$stu_email" />
+                    <input type="hidden" id="course_id" class="form-control" value="$course_id" />
+                    <input type="text" id="addcomment" class="form-control" placeholder="Add Your Comment ..." />
+                    <label class="form-label" for="addANote"></label>
+                    <button class="btn btn-success mt-2" onclick="addComment()">+ Add a Comment</button>
+                  </form>
+                </div>
+                <hr>
+                <div class="card mt-2">
+                  <div class="card-body">
+                    <p>Type your note, and hit enter to add it</p>
+                    <div class="d-flex justify-content-between">
+                      <div class="d-flex flex-row align-items-center">
+                        <img src="../../img/profilepic/IMG20230511101100.jpg" alt="avatar" width="25" height="25" />
+                        <p class="small mb-0 ms-2">Johny</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- </div> -->
+              <?php
 
 
 
-          }else{
+          } else {
             echo '<div class="container1">You Are Not Enrolled In Course</div>';
           }
-          
+
 
 
           $_SESSION['course_id'] = $course_id;
@@ -309,14 +312,14 @@
         
 
         }
-        
+
         ?>
+
+        </div>
 
       </div>
 
-    </div>
 
-    
 
 
 
