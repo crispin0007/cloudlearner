@@ -3,7 +3,7 @@
 
 <head>
 
-    <title>About Us | CloudLearner</title>
+    <title>Sign Up| CloudLearner</title>
     <?php
     include 'elements/topheader.php'
         ?>
