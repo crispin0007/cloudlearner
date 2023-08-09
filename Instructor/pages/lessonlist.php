@@ -55,6 +55,7 @@
                     <?php
                     if (isset($_SESSION['lesson_alert_msg'])) {
                         echo $_SESSION['lesson_alert_msg'];
+
                     }
 
                     ?>
@@ -74,6 +75,7 @@
                     if (isset($_REQUEST['viewlessons'])) {
                         $course_id = $_REQUEST['id'];
                         $sql = "SELECT * FROM lesson WHERE course_id = '$course_id'";
+                        echo $_SESSION['course_id'];
                         $result = $conn->query($sql);
                         if ($result->num_rows > 0) {
                             echo '<table class="table align-middle mb-0 bg-white">
@@ -109,7 +111,7 @@
                                         </div>
                                     </div>
                                 </td>
-                                <td>
+                                <td> 
                                     <div class="d-flex align-items-center">
                                         <div class="ms-3">
                                             <p class="fw-bold mb-1">' . $row["course_name"] . '</p>
@@ -134,7 +136,7 @@
                                             <i class="fas fa-trash"></i>
                                         </button>
                                     </form>
-                                    
+                                     
                                 </td> 
                             </tr>';
                             }
@@ -158,6 +160,19 @@
                     } else {
                         $alert_msg = '<div class="alert alert-danger">Fill All Fields</div>';
                     }
+                    if (isset($_SESSION['course_id']) ) {
+                        $course_id = $_SESSION['course_id'];
+                        
+                        echo '
+            <div>
+                <a href="addlesson.php" class="btn btn-primary btn-circle btn-lg "
+                    style="position: fixed;bottom: 10px;right: 20px;margin-bottom: 30px;">
+                    <i class="fas fa-plus fa-2x"></i>
+                </a>
+            </div>
+            ';
+                    }
+                    
                     ?>
 
                     

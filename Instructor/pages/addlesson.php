@@ -24,34 +24,36 @@
 </head>
 
 <body id="page-top">
-    <?php 
+    <?php
     include('../../database.php');
-    include('../elements/session.php'); 
-    if(isset($_REQUEST['lessonSubmitBtn'])){
+    include('../elements/session.php');
+    if (isset($_REQUEST['lessonSubmitBtn'])) {
         // checking for empty field  
-        if(($_REQUEST['lesson_name'] == "")  || ($_REQUEST['lesson_descrip'] == "") || 
-         ($_REQUEST['course_id'] == "")|| ($_REQUEST['course_title'] == "")){
-            $alert_msg ='<div class="alert alert-danger">Fill All Fields</div>';
-        }else{
-            $lesson_name =$_REQUEST['lesson_name']; 
-            $lesson_descrip =$_REQUEST['lesson_descrip']; 
-            $course_id =$_REQUEST['course_id']; 
-            $course_name =$_REQUEST['course_title'];
-            $lessonvideo =$_FILES['lessonvideo']['name'];
-            $lessonlinktemp =$_FILES['lessonvideo']['tmp_name'];
-            $vid_folder = '../../img/videoes/'.$lessonvideo;
-            $video_folder_location = str_replace('../../', '', '../../img/videoes/'.$lessonvideo);
+        if (
+            ($_REQUEST['lesson_name'] == "") || ($_REQUEST['lesson_descrip'] == "") ||
+            ($_REQUEST['course_id'] == "") || ($_REQUEST['course_title'] == "")
+        ) {
+            $alert_msg = '<div class="alert alert-danger">Fill All Fields</div>';
+        } else {
+            $lesson_name = $_REQUEST['lesson_name'];
+            $lesson_descrip = $_REQUEST['lesson_descrip'];
+            $course_id = $_REQUEST['course_id'];
+            $course_name = $_REQUEST['course_title'];
+            $lessonvideo = $_FILES['lessonvideo']['name'];
+            $lessonlinktemp = $_FILES['lessonvideo']['tmp_name'];
+            $vid_folder = '../../img/videoes/' . $lessonvideo;
+            $video_folder_location = str_replace('../../', '', '../../img/videoes/' . $lessonvideo);
             move_uploaded_file($lessonlinktemp, $vid_folder);
-            
+
 
             $sql = "INSERT INTO lesson (lesson_name, lesson_link, lesson_descrip,vlocation, course_id, course_name) 
                                VALUES ('$lesson_name', '$vid_folder', '$lesson_descrip','$video_folder_location','$course_id','$course_name') ";
-            if($conn->query($sql) == TRUE){
-                $alert_msg ='<div class="alert alert-success">New Lesson Added Successfully</div>';
-            }else{
-                $alert_msg ='<div class="alert alert-danger">Unable To Add New Lesson </div>';
-    }
-    }
+            if ($conn->query($sql) == TRUE) {
+                $alert_msg = '<div class="alert alert-success">New Lesson Added Successfully</div>';
+            } else {
+                $alert_msg = '<div class="alert alert-danger">Unable To Add New Lesson </div>';
+            }
+        }
     }
     ?>
     <!-- Page Wrapper -->
@@ -59,8 +61,8 @@
 
         <!-- Sidebar -->
         <?php
-                include('../elements/sidebar.php')
-                ?>
+        include('../elements/sidebar.php')
+            ?>
 
         <!-- End of Sidebar -->
 
@@ -73,7 +75,7 @@
                 <!-- Topbar -->
                 <?php
                 include('../elements/topnavbar.php')
-                ?>
+                    ?>
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
@@ -81,22 +83,26 @@
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Add New Lesson</h1>
-                        <span><?php if(isset($alert_msg)){ echo $alert_msg;} ?></span>
+                        <span>
+                            <?php if (isset($alert_msg)) {
+                                echo $alert_msg;
+                            } ?>
+                        </span>
                     </div>
 
 
                     <!-- content body Begin Here -->
                     <form method="post" enctype="multipart/form-data">
                         <?php
-// Access the session data here
-if (isset($_SESSION['course_id']) && isset($_SESSION['course_title'])) {
-    $course_id = $_SESSION['course_id'];
-    $course_title = $_SESSION['course_title'];
-} else {
-    // Handle the case when the session data is not available
-    echo "Session data not found.";
-}
-?>
+                        // Access the session data here
+                        if (isset($_SESSION['course_id']) ) {
+                            $course_id = $_SESSION['course_id'];
+                            $course_title = $conn->query("SELECT course_title FROM coursedetails WHERE course_id = $course_id")->fetch_assoc()['course_title'];
+                        } else {
+                            // Handle the case when the session data is not available
+                            echo "Session data not found.";
+                        }
+                        ?>
 
 
                         <div class="row mb-4">
@@ -112,7 +118,7 @@ if (isset($_SESSION['course_id']) && isset($_SESSION['course_title'])) {
                             <div class="col-9">
                                 <div class="form-outline">
                                     <input type="text" id="course_title" name="course_title" class="form-control"
-                                        value="<?php  echo "$course_title" ?>" readonly />
+                                        value="<?php echo "$course_title" ?>" readonly />
                                     <label class="form-label" for="course_name">Course Name</label>
                                 </div>
                             </div>
@@ -153,7 +159,7 @@ if (isset($_SESSION['course_id']) && isset($_SESSION['course_title'])) {
 
             <!-- Footer -->
             <?php
-                include('../elements/footer.php')
+            include('../elements/footer.php')
                 ?>
             <!-- End of Footer -->
 
@@ -170,7 +176,7 @@ if (isset($_SESSION['course_id']) && isset($_SESSION['course_title'])) {
 
 
 
-    <?php include('../elements/jsfile.php')    ?>
+    <?php include('../elements/jsfile.php') ?>
 
 
 </body>

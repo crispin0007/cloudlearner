@@ -77,11 +77,11 @@
             if ($conn->query($sql) == TRUE) {
                 $lesson_alert_msg = '<div class="alert alert-success"> Lesson Edited Successfully</div>';
                 $_SESSION['lesson_alert_msg'] = $lesson_alert_msg;
-                header('Location: lessons.php');
+                header('Location: lessonlist.php');
             } else {
                 $lesson_alert_msg = '<div class="alert alert-danger">Unable To Edit New Lesson </div>';
                 $_SESSION['lesson_alert_msg'] = $lesson_alert_msg;
-                header('Location: lessons.php');
+                header('Location: lessonlist.php');
             }
         }
     }
