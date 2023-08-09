@@ -132,45 +132,39 @@
                             <!-- Course_ID -->
                             <div class="col-3">
                                 <div class="form-outline">
-                                    <input type="text" id="lesson_id" name="lesson_id" class="form-control"
-                                        value="<?php if (isset($row['lesson_id']))
-                                echo $row['lesson_id']; ?>" readonly />
+                                    <input type="text" id="lesson_id" name="lesson_id" class="form-control" value="<?php if (isset($row['lesson_id']))
+                                        echo $row['lesson_id']; ?>" readonly />
                                     <label class="form-label" for="course_id">Lesson ID </label>
                                 </div>
                             </div>
                             <!-- Course Name -->
                             <div class="col-9">
                                 <div class="form-outline">
-                                    <input type="text" id="course_title" name="course_title" class="form-control"
-                                        value="<?php if (isset($row['course_name']))
-                                            echo $row['course_name']; ?>"
-                                        readonly />
+                                    <input type="text" id="course_title" name="course_title" class="form-control" value="<?php if (isset($row['course_name']))
+                                        echo $row['course_name']; ?>" readonly />
                                     <label class="form-label" for="course_name">Course Name</label>
                                 </div>
                             </div>
                         </div>
                         <!-- lesson Name -->
                         <div class=" form-outline mb-4">
-                            <input type="text" id="lesson_name" name="lesson_name" class="form-control"
-                                value="<?php if (isset($row['lesson_name']))
-                                    echo $row['lesson_name']; ?>" />
+                            <input type="text" id="lesson_name" name="lesson_name" class="form-control" value="<?php if (isset($row['lesson_name']))
+                                echo $row['lesson_name']; ?>" />
                             <label class="form-label" for="lesson_name">Lesson Name</label>
                         </div>
 
 
                         <!-- description input -->
                         <div class="form-outline mb-4">
-                            <textarea class="form-control" id="lesson_descrip" name="lesson_descrip"
-                                rows="4"><?php if (isset($row['lesson_descrip']))
-                                    echo $row['lesson_descrip']; ?></textarea>
+                            <textarea class="form-control" id="lesson_descrip" name="lesson_descrip" rows="4"><?php if (isset($row['lesson_descrip']))
+                                echo $row['lesson_descrip']; ?></textarea>
                             <label class="form-label" for="lesson_descrip">Lesson Description</label>
                         </div>
                         <!-- upload image file  -->
 
                         <div class="form-outline mb-5">
-                            <input type="text" id="videolocation1" name="videolocation1" class="form-control"
-                                value="<?php if (isset($row['lesson_link']))
-                                    echo $row['lesson_link']; ?>" />
+                            <input type="text" id="videolocation1" name="videolocation1" class="form-control" value="<?php if (isset($row['lesson_link']))
+                                echo $row['lesson_link']; ?>" />
 
                             <label for="lessonvideo">Upload Lesson Video</label>
                             <input type="file" class="form-control-file" id="lessonvideo" name="lessonvideo"

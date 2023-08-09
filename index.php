@@ -35,6 +35,7 @@
                     assignments to advance your knowledge and career—all without any cost. <br> Elevate your learning
                     journey today.
                 </p>
+                <a href="login.php" class="btn btn-danger">Get Started</a>
             </div>
 
         </div>

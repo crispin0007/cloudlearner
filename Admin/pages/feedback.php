@@ -25,15 +25,15 @@
 
 <body id="page-top">
     <?php include('../../database.php');
-     include('../elements/session.php');   
+    include('../elements/session.php');
     ?>
     <!-- Page Wrapper -->
     <div id="wrapper">
 
         <!-- Sidebar -->
         <?php
-                include('../elements/sidebar.php')
-                ?>
+        include('../elements/sidebar.php')
+            ?>
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -45,7 +45,7 @@
                 <!-- Topbar -->
                 <?php
                 include('../elements/topnavbar.php')
-                ?>
+                    ?>
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
@@ -55,11 +55,11 @@
                         <h1 class="h3 mb-0 text-gray-800">Feedback</h1>
 
                     </div>
-                    <?php 
-                        $sql = "SELECT * FROM feedback";
-                        $result = $conn -> query($sql);
-                        if($result ->num_rows > 0){
-                            echo '<table class="table align-middle mb-0 bg-white">
+                    <?php
+                    $sql = "SELECT * FROM feedback";
+                    $result = $conn->query($sql);
+                    if ($result->num_rows > 0) {
+                        echo '<table class="table align-middle mb-0 bg-white">
                             <thead class="bg-light">
                                 <tr>
                                     <th>Feedback ID</th>
@@ -70,9 +70,9 @@
                                 </tr>
                             </thead>
                             <tbody>';
-            
-                    while ($row = $result->fetch_assoc()) {
-                        echo '<tr>
+
+                        while ($row = $result->fetch_assoc()) {
+                            echo '<tr>
                                 <td>
                                     <span class="badge badge-success rounded-pill d-inline">' . $row["feedback_id"] . '</span>
                                 </td>
@@ -85,7 +85,7 @@
                                 </td>
                                 <td>
                                     
-                                    <p class="fw-normal mb-1">' .$row["stu_name"] . '</p>
+                                    <p class="fw-normal mb-1">' . $row["stu_name"] . '</p>
                                 </td>
                                 
                                 <td>
@@ -110,22 +110,23 @@
                                 </td> 
 
                             </tr>';
-                    }
-            
-                    echo '</tbody>
-                        </table>';
-                        }else{
-                            echo "0 results";
-                        };
-                        if(isset($_REQUEST['delete'])){
-                            $sql = "DELETE FROM feedback WHERE course_id={$_REQUEST['id']}";
-                            if($conn ->query($sql) == TRUE){
-                                echo '<meta http-equiv="refresh" content=0;URL=?deleted />';
-                            }else{
-                                echo "Unable to delete data";
-                            }
                         }
-                        ?>
+
+                        echo '</tbody>
+                        </table>';
+                    } else {
+                        echo "0 results";
+                    }
+                    ;
+                    if (isset($_REQUEST['delete'])) {
+                        $sql = "DELETE FROM feedback WHERE course_id={$_REQUEST['id']}";
+                        if ($conn->query($sql) == TRUE) {
+                            echo '<meta http-equiv="refresh" content=0;URL=?deleted />';
+                        } else {
+                            echo "Unable to delete data";
+                        }
+                    }
+                    ?>
 
 
 
@@ -137,7 +138,7 @@
 
             <!-- Footer -->
             <?php
-                include('../elements/footer.php')
+            include('../elements/footer.php')
                 ?>
             <!-- End of Footer -->
 
@@ -154,7 +155,7 @@
 
 
 
-    <?php include('../elements/jsfile.php')    ?>
+    <?php include('../elements/jsfile.php') ?>
 
 
 </body>

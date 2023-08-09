@@ -30,9 +30,9 @@
 
         <!-- Sidebar -->
         <?php
-            include('../../database.php');
-            include('../elements/sidebar.php');
-            include('../elements/session.php');
+        include('../../database.php');
+        include('../elements/sidebar.php');
+        include('../elements/session.php');
         ?>
         <!-- End of Sidebar -->
 
@@ -45,7 +45,7 @@
                 <!-- Topbar -->
                 <?php
                 include('../elements/topnavbar.php')
-                ?>
+                    ?>
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
@@ -56,22 +56,22 @@
                     </div>
                     <div class="row">
                         <?php
-                if (isset($stuLogEmail)) {
-                    // Assuming you have already established a valid database connection
-                    
-                    $sql = "SELECT py.order_id, c.course_id, c.course_title, c.duration, c.category, c.coursedescription, c.courseimage, c.author
+                        if (isset($stuLogEmail)) {
+                            // Assuming you have already established a valid database connection
+                        
+                            $sql = "SELECT py.order_id, c.course_id, c.course_title, c.duration, c.category, c.coursedescription, c.courseimage, c.author
                             FROM payment AS py
                             JOIN coursedetails AS c ON c.course_id = py.course_id
                             WHERE py.stu_email = '$stuLogEmail' AND py.status = 'success'";
 
-                    $result = $conn->query($sql);
-                    
+                            $result = $conn->query($sql);
 
-                    if ($result) {
-                        if ($result->num_rows > 0) {
-                            // Loop through the query results and display course information
-                            while ($row = $result->fetch_assoc()) {
-                                echo '
+
+                            if ($result) {
+                                if ($result->num_rows > 0) {
+                                    // Loop through the query results and display course information
+                                    while ($row = $result->fetch_assoc()) {
+                                        echo '
                                         <div class="col col-lg-6">
                                             <div class="card ml-2">
                                                 <img src="' . $row['courseimage'] . '"
@@ -80,7 +80,7 @@
                                                 <h5 class="card-title">' . $row['course_title'] . '</h5>
                                                 <p class="card-text text-truncate">' . $row['coursedescription'] . '</p>
                                                 <a href="#" class="btn btn-outline-success mb-2">Author: ' . $row['author'] . '</a>
-                                                <a href="#" class="btn btn-outline-danger mb-2">Category: ' . $row['category'] .'</a>
+                                                <a href="#" class="btn btn-outline-danger mb-2">Category: ' . $row['category'] . '</a>
                                                 <a href="#" class="btn btn-outline-warning mb-2">Duration: ' . $row['duration'] . '</a>
                                                 <a href="mylearning.php?course_id=' . $row['course_id'] . '" class="btn btn-primary btn-lg mb-2">Go To My Learning</a>
                                                 
@@ -91,9 +91,9 @@
                                     
                                 
                             ';
-                        }
-                    } else {
-                        echo '<div class="container-fluid d-flex align-items-center justify-content-center" ">
+                                    }
+                                } else {
+                                    echo '<div class="container-fluid d-flex align-items-center justify-content-center" ">
                         <div class="card border-0 bg-light shadow animated-card">
                           <div class="card-body text-center">
                             <p class="h4 font-weight-bold">No Course is Enrolled</p>
@@ -103,12 +103,12 @@
                           </div>
                         </div>
                       </div>';
-                    }
-                } else {
-                    echo 'Error executing the SQL query.';
-                }
-            }
-        ?>
+                                }
+                            } else {
+                                echo 'Error executing the SQL query.';
+                            }
+                        }
+                        ?>
                     </div>
 
                     <!-- Content Row -->
@@ -121,7 +121,7 @@
 
             <!-- Footer -->
             <?php
-                include('../elements/footer.php')
+            include('../elements/footer.php')
                 ?>
             <!-- End of Footer -->
 
@@ -137,7 +137,7 @@
     </a>
 
 
-    <?php include('../elements/jsfile.php')    ?>
+    <?php include('../elements/jsfile.php') ?>
 
 
 

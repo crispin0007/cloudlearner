@@ -1,18 +1,18 @@
 <!-- Topbar -->
 <?php
-                        
-        if (isset($_SESSION['stu_name'])) {
-            $student_name = $_SESSION['stu_name'];
-            
-        }
-        if (isset($_SESSION['stu_img'])) {
-            $student_image = $_SESSION['stu_img'];
-            
-        }
-        
-        
-        
-    ?>
+
+if (isset($_SESSION['stu_name'])) {
+    $student_name = $_SESSION['stu_name'];
+
+}
+if (isset($_SESSION['stu_img'])) {
+    $student_image = $_SESSION['stu_img'];
+
+}
+
+
+
+?>
 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
     <!-- Sidebar Toggle (Topbar) -->
@@ -20,7 +20,7 @@
         <i class="fa fa-bars"></i>
     </button>
 
-    
+
 
     <!-- Topbar Navbar -->
     <ul class="navbar-nav ml-auto">
@@ -167,7 +167,9 @@
         <li class="nav-item dropdown no-arrow">
             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo "$student_name" ?></span>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+                    <?php echo "$student_name" ?>
+                </span>
                 <img class="img-profile rounded-circle" src="<?php echo $student_image ?>">
             </a>
             <!-- Dropdown - User Information -->

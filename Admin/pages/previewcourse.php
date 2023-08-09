@@ -70,10 +70,10 @@
                                     <div class="col-lg-10 offset-lg-1">
                                         <div class="course-note badge badge-warning rounded-pill d-inline">Pending... </div>
                                         <h3>
-                                            '.$row['course_title'].'
+                                            ' . $row['course_title'] . '
                                         </h3>
                                         <form action="" method="POST" class="d-inline">
-                                    <input type="hidden" name="id" value="'.$row["course_id"]. '">
+                                    <input type="hidden" name="id" value="' . $row["course_id"] . '">
                                     <button type="submit" name="approvecourse" value="approvecourse" class="btn btn-success btn-lg btn-circle" style="position: fixed;bottom: 10px;right: 20px;margin-bottom: 150px;">
                                         <i class="fa-solid fa-check"></i>
                                     </button>
@@ -86,7 +86,7 @@
                                                     <div class="ca-pic set-bg" data-setbg="img/authors/2.jpg"></div>
                                                     
                                                     <p>
-                                                    '.$row['author'].'  , <span>Developer</span>
+                                                    ' . $row['author'] . '  , <span>Developer</span>
                                                     </p>
                                                 </div>
                                             </div>
@@ -94,12 +94,12 @@
                                             <div class="course-meta">
                                                 <div class="cm-info">
                                                     <h6>
-                                                    '.$row['category'].'
+                                                    ' . $row['category'] . '
                                                     </h6>
                                                     <p>Development</p>
                                                 </div>
                                             </div>
-                                            <img src="'.$row['courseimage'].'" height="500px" width="100%"/>
+                                            <img src="' . $row['courseimage'] . '" height="500px" width="100%"/>
                                             
                                         </div>
                                         
@@ -112,7 +112,7 @@
                                 <div class="">
                                     <div class="h1">Description</div>
                                     <p>
-                                    '.$row['coursedescription'].'
+                                    ' . $row['coursedescription'] . '
                                     </p>
                                 </div>
 
@@ -127,12 +127,12 @@
                             // Or handle the situation when no course is found with the given ID.
                         }
                     }
-                    if(isset($_REQUEST['approvecourse'])){
+                    if (isset($_REQUEST['approvecourse'])) {
                         $sql = "UPDATE coursedetails SET  status='1' WHERE course_id={$_REQUEST['id']}";
-                        if($conn ->query($sql) == TRUE){
+                        if ($conn->query($sql) == TRUE) {
                             echo '<div class="alert alert-success">Course Approved</div>';
                             echo '<meta http-equiv="refresh" content=0;URL=?approved />';
-                        }else{
+                        } else {
                             echo "Unable to Approve Course";
                         }
                     }

@@ -98,7 +98,7 @@
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Edit Student</h1>
-                        
+
                         <span>
                             <?php if (isset($alert_msg)) {
                                 echo $alert_msg;
@@ -110,14 +110,14 @@
 
                         <!-- Student Nasme -->
                         <div class=" form-outline mb-4">
-                            <input type="text" id="stuid" name="stuid" class="form-control"
-                                value="<?php if (isset($row['instructor_id']))
+                            <input type="text" id="stuid" name="stuid" class="form-control" value="<?php if (isset($row['instructor_id']))
                                 echo $row['instructor_id']; ?>" readonly />
                             <label class="form-label" for="stuid">instructor ID</label>
                         </div>
                         <div class=" form-outline mb-4">
                             <input type="text" id="insname" name="insname" class="form-control"
-                                value="<?php if(isset($row['instructor_name'])) echo $row['instructor_name']; ?>" />
+                                value="<?php if (isset($row['instructor_name']))
+                                    echo $row['instructor_name']; ?>" />
                             <label class="form-label" for="insname">Instructor Name</label>
                         </div>
 
@@ -126,7 +126,8 @@
                             <div class="col">
                                 <div class="form-outline">
                                     <input type="text" id="insemail" name="insemail" class="form-control"
-                                        value="<?php if(isset($row['instructor_email'])) echo $row['instructor_email']; ?>" />
+                                        value="<?php if (isset($row['instructor_email']))
+                                            echo $row['instructor_email']; ?>" />
                                     <label class="form-label" for="insemail">Instructor Email</label>
                                 </div>
                             </div>
@@ -134,7 +135,8 @@
                             <div class="col">
                                 <div class="form-outline">
                                     <input type="password" id="inspass" name="inspass" class="form-control"
-                                        value="<?php if(isset($row['instructor_pass'])) echo $row['instructor_pass']; ?>" />
+                                        value="<?php if (isset($row['instructor_pass']))
+                                            echo $row['instructor_pass']; ?>" />
                                     <label class="form-label" for="inspass">Instructor New Passsword</label>
                                 </div>
                             </div>
@@ -142,7 +144,8 @@
                             <div class="col">
                                 <div class="form-outline">
                                     <input type="text" id="inspos" name="inspos" class="form-control"
-                                        value="<?php if(isset($row['instructor_position'])) echo $row['instructor_position']; ?>" />
+                                        value="<?php if (isset($row['instructor_position']))
+                                            echo $row['instructor_position']; ?>" />
                                     <label class="form-label" for="inspos">Student Position</label>
                                 </div>
                             </div>

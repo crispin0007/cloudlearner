@@ -31,74 +31,77 @@
         $course_id = $_REQUEST['id'];
         $sql = "SELECT * FROM coursedetails WHERE course_id=$course_id";
         $result = $conn->query($sql);
-    
+
         if ($result && $result->num_rows > 0) {
             $row = $result->fetch_assoc();
             // Now you can use $row to access the data from the fetched row.
         } else {
             echo "No course found with the given ID.";
-            
+
             // Or handle the situation when no course is found with the given ID.
         }
     }
-    
 
 
-    if(isset($_REQUEST['courseEditBtn'])){
-        
-        if(($_REQUEST['coursetitle'] == "") || ($_REQUEST['authorname'] == "") || ($_REQUEST['courseduration'] == "") || 
-        ($_REQUEST['originalprice'] == "") || ($_REQUEST['sellingprice'] == "") || ($_REQUEST['category'] == "") || 
-        ($_REQUEST['coursetitle'] == "") || ($_REQUEST['description'] == "")){
-            $alert_msg ='<div class="alert alert-danger">Fill All Fields</div>';
-        }else{            
-            $course_id =$_REQUEST['courseid']; 
-            $coursetitle =$_REQUEST['coursetitle']; 
-            $authorname =$_REQUEST['authorname']; 
-            $courseduration =$_REQUEST['courseduration']; 
-            $originalprice =$_REQUEST['originalprice'];
-            $sellingprice =$_REQUEST['sellingprice'];
-            $category =$_REQUEST['category']; 
-            $coursetitle =$_REQUEST['coursetitle']; 
-            $description =$_REQUEST['description'];
-            if(empty($_FILES['courseimage']['name'])){
-                
-                $img_folder =$_REQUEST['imagelocation1'];
-                $img_folder_location = str_replace('../../', '', '../../'.$img_folder);
-            }else{
-                $courseimage =$_FILES['courseimage']['name'];
-                $courseimagetemp =$_FILES['courseimage']['tmp_name'];
-                $img_folder = '../../img/courseimg/'.$courseimage;
-                $img_folder_location = str_replace('../../', '', '../../img/courseimg/'.$courseimage);
+
+    if (isset($_REQUEST['courseEditBtn'])) {
+
+        if (
+            ($_REQUEST['coursetitle'] == "") || ($_REQUEST['authorname'] == "") || ($_REQUEST['courseduration'] == "") ||
+            ($_REQUEST['originalprice'] == "") || ($_REQUEST['sellingprice'] == "") || ($_REQUEST['category'] == "") ||
+            ($_REQUEST['coursetitle'] == "") || ($_REQUEST['description'] == "")
+        ) {
+            $alert_msg = '<div class="alert alert-danger">Fill All Fields</div>';
+        } else {
+            $course_id = $_REQUEST['courseid'];
+            $coursetitle = $_REQUEST['coursetitle'];
+            $authorname = $_REQUEST['authorname'];
+            $courseduration = $_REQUEST['courseduration'];
+            $originalprice = $_REQUEST['originalprice'];
+            $sellingprice = $_REQUEST['sellingprice'];
+            $category = $_REQUEST['category'];
+            $coursetitle = $_REQUEST['coursetitle'];
+            $description = $_REQUEST['description'];
+            if (empty($_FILES['courseimage']['name'])) {
+
+                $img_folder = $_REQUEST['imagelocation1'];
+                $img_folder_location = str_replace('../../', '', '../../' . $img_folder);
+            } else {
+                $courseimage = $_FILES['courseimage']['name'];
+                $courseimagetemp = $_FILES['courseimage']['tmp_name'];
+                $img_folder = '../../img/courseimg/' . $courseimage;
+                $img_folder_location = str_replace('../../', '', '../../img/courseimg/' . $courseimage);
                 move_uploaded_file($courseimagetemp, $img_folder);
-                
-            }
-            
-            
-                
-                $sql = "UPDATE coursedetails SET course_title='$coursetitle', oprice='$originalprice', category='$category', coursedescription='$description', 
-                courseimage='$img_folder', author='$authorname', sprice='$sellingprice', duration='$courseduration', imagelocation='$img_folder_location' WHERE course_id=$course_id";
-                if($conn->query($sql) == TRUE){
-                    
-                    $alert_msg ='<div class="alert alert-success">Course Edited Successfully</div>';
-                    $_SESSION['alert_msg'] = $alert_msg;
-                    header('Location: courses.php');
 
-                }else{
-                    $alert_msg ='<div class="alert alert-danger">Unable To Edit Course </div>';
+            }
+
+
+
+            $sql = "UPDATE coursedetails SET course_title='$coursetitle', oprice='$originalprice', category='$category', coursedescription='$description', 
+                courseimage='$img_folder', author='$authorname', sprice='$sellingprice', duration='$courseduration', imagelocation='$img_folder_location' WHERE course_id=$course_id";
+            if ($conn->query($sql) == TRUE) {
+
+                $alert_msg = '<div class="alert alert-success">Course Edited Successfully</div>';
+                $_SESSION['alert_msg'] = $alert_msg;
+                header('Location: courses.php');
+
+            } else {
+                $alert_msg = '<div class="alert alert-danger">Unable To Edit Course </div>';
+            }
+        }
     }
-    }}
-    
+
     ?>
 
 
-<!-- Page Wrapper -->
+    <!-- Page Wrapper -->
     <div id="wrapper">
 
         <!-- Sidebar -->
         <?php
-                include('../elements/sidebar.php');
-                
-                ?>
+        include('../elements/sidebar.php');
+
+        ?>
 
         <!-- End of Sidebar -->
 
@@ -111,7 +114,7 @@
                 <!-- Topbar -->
                 <?php
                 include('../elements/topnavbar.php')
-                ?>
+                    ?>
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
@@ -119,7 +122,11 @@
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Edit Courses</h1>
-                        <span><?php if(isset($alert_msg)){ echo $alert_msg;} ?></span>
+                        <span>
+                            <?php if (isset($alert_msg)) {
+                                echo $alert_msg;
+                            } ?>
+                        </span>
                     </div>
 
 
@@ -128,14 +135,16 @@
 
                         <!-- Course ID -->
                         <div class=" form-outline mb-4">
-                            <input type="text" id="courseid" name="courseid" class="form-control" 
-                            value="<?php if(isset($row['course_id'])) echo $row['course_id']; ?>" readonly>
+                            <input type="text" id="courseid" name="courseid" class="form-control"
+                                value="<?php if (isset($row['course_id']))
+                                    echo $row['course_id']; ?>" readonly>
                             <label class="form-label" for="courseid">Course ID</label>
                         </div>
                         <!-- Course TITLE -->
                         <div class=" form-outline mb-4">
-                            <input type="text" id="coursetitle" name="coursetitle" class="form-control" 
-                            value="<?php if(isset($row['course_title'])) echo $row['course_title']; ?>">
+                            <input type="text" id="coursetitle" name="coursetitle" class="form-control"
+                                value="<?php if (isset($row['course_title']))
+                                    echo $row['course_title']; ?>">
                             <label class="form-label" for="coursetitle">Course Title</label>
                         </div>
 
@@ -144,23 +153,26 @@
                             <div class="col">
                                 <div class="form-outline">
                                     <input type="text" id="authorname" name="authorname" class="form-control"
-                                    value="<?php if(isset($row['author'])) echo $row['author']; ?>" />
+                                        value="<?php if (isset($row['author']))
+                                            echo $row['author']; ?>" />
                                     <label class="form-label" for="authorname">Author Name</label>
                                 </div>
                             </div>
                             <!-- course duration  -->
                             <div class="col">
                                 <div class="form-outline">
-                                    <input type="text" id="courseduration" name="courseduration" class="form-control" 
-                                    value="<?php if(isset($row['duration'])) echo $row['duration']; ?>"/>
+                                    <input type="text" id="courseduration" name="courseduration" class="form-control"
+                                        value="<?php if (isset($row['duration']))
+                                            echo $row['duration']; ?>" />
                                     <label class="form-label" for="courseduration">Course Duration</label>
                                 </div>
                             </div>
                             <!-- original price  -->
                             <div class="col">
                                 <div class="form-outline">
-                                    <input type="text" id="originalprice" name="originalprice" class="form-control" 
-                                    value="<?php if(isset($row['oprice'])) echo $row['oprice']; ?>" />
+                                    <input type="text" id="originalprice" name="originalprice" class="form-control"
+                                        value="<?php if (isset($row['oprice']))
+                                            echo $row['oprice']; ?>" />
                                     <label class="form-label" for="originalprice">Original Price</label>
                                 </div>
                             </div>
@@ -169,28 +181,33 @@
                             <!-- course selling price  -->
                             <div class="col">
                                 <div class="form-outline">
-                                    <input type="text" id="sellingprice" name="sellingprice" class="form-control" 
-                                    value="<?php if(isset($row['sprice'])) echo $row['sprice']; ?>" />
+                                    <input type="text" id="sellingprice" name="sellingprice" class="form-control"
+                                        value="<?php if (isset($row['sprice']))
+                                            echo $row['sprice']; ?>" />
                                     <label class="form-label" for="sellingprice">Course Selling Price</label>
                                 </div>
                             </div>
                             <!-- course category  -->
                             <div class="col">
                                 <div class="form-outline">
-                                    <input type="text" id="category" name="category" class="form-control" 
-                                    value="<?php if(isset($row['category'])) echo $row['category']; ?>" />
+                                    <input type="text" id="category" name="category" class="form-control"
+                                        value="<?php if (isset($row['category']))
+                                            echo $row['category']; ?>" />
                                     <label class="form-label" for="category">Category</label>
                                 </div>
                             </div>
                             <!-- upload image file  -->
                             <div class="col">
                                 <div class="form-outline">
-                                    <img src="<?php if(isset($row['courseimage'])) echo $row['courseimage']; ?>"height:250px; width="400px"  />
-                                    <input type="hidden" id="imagelocation1" name="imagelocation1" class="form-control" 
-                                    value="<?php if(isset($row['courseimage'])) echo $row['courseimage']; ?>" />
+                                    <img src="<?php if (isset($row['courseimage']))
+                                        echo $row['courseimage']; ?>"
+                                        height:250px; width="400px" />
+                                    <input type="hidden" id="imagelocation1" name="imagelocation1" class="form-control"
+                                        value="<?php if (isset($row['courseimage']))
+                                            echo $row['courseimage']; ?>" />
                                     <label for="courseimage">Upload Course Image</label>
                                     <input type="file" class="form-control-file" id="courseimage" name="courseimage"
-                                        accept="image/png, image/gif, image/jpeg" >
+                                        accept="image/png, image/gif, image/jpeg">
                                 </div>
                             </div>
 
@@ -200,11 +217,10 @@
 
                         <!-- description input -->
                         <div class="form-outline mb-4">
-                            <textarea class="form-control" id="description" name="description" rows="15"
-                            
-                            ><?php if(isset($row['coursedescription'])) echo $row['coursedescription']; ?></textarea>
-                            <label class="form-label" for="description" 
-                            >Course Description</label>
+                            <textarea class="form-control" id="description" name="description"
+                                rows="15"><?php if (isset($row['coursedescription']))
+                                    echo $row['coursedescription']; ?></textarea>
+                            <label class="form-label" for="description">Course Description</label>
                         </div>
 
                         <!-- Submit button -->
@@ -221,7 +237,7 @@
 
             <!-- Footer -->
             <?php
-                include('../elements/footer.php')
+            include('../elements/footer.php')
                 ?>
             <!-- End of Footer -->
 
@@ -238,7 +254,7 @@
 
 
 
-    <?php include('../elements/jsfile.php')    ?>
+    <?php include('../elements/jsfile.php') ?>
 
 
 </body>

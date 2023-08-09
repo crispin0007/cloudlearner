@@ -1,4 +1,4 @@
-<?php 
+<?php
 // Admin login verification
 
 include_once('../database.php');

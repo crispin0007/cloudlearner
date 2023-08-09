@@ -5,8 +5,9 @@
 
             <div class="copyright">
 
-                Copyright &copy;<script>
-                document.write(new Date().getFullYear());
+                Copyright &copy;
+                <script>
+                    document.write(new Date().getFullYear());
                 </script> All rights reserved <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="#"
                     target="_blank">cloudLearner</a> <button type="button"
                     class="btn btn-danger justify-content-center ml-4" data-toggle="modal"

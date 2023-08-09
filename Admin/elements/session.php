@@ -3,7 +3,7 @@
 if (!isset($_SESSION)) {
     session_start();
 }
-// include '../../Student/elements/session.php';
+
 if (isset($_SESSION['admin_is_login'])) {
     $adminEmail = $_SESSION['adminLogEmail'];
 } else {

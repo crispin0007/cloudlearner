@@ -30,10 +30,10 @@
 
         <!-- Sidebar -->
         <?php
-                include('../../database.php');
-                include('../elements/sidebar.php');
-                include('../elements/session.php');
-                ?>
+        include('../../database.php');
+        include('../elements/sidebar.php');
+        include('../elements/session.php');
+        ?>
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -45,7 +45,7 @@
                 <!-- Topbar -->
                 <?php
                 include('../elements/topnavbar.php')
-                ?>
+                    ?>
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
@@ -58,32 +58,32 @@
                     <!-- Content Row -->
 
                     <?php include('../../database.php');
-    include('../elements/session.php');
-    if(isset($_REQUEST['feedSubmitBtn'])){
-        // checking for empty field  
-        if (isset($_REQUEST['feedSubmitBtn'])) {
-            // checking for empty field  
-            if (
-                ($_REQUEST['stu_name'] == "") || ($_REQUEST['message'] == "") || ($_REQUEST['stu_id'] == "") )
-             {
-                $alert_msg = '<div class="alert alert-danger">Fill All Fields</div>';
-            } else {
-                $stu_name = $_REQUEST['stu_name']; 
-                $message = $_REQUEST['message']; 
-                $stu_id = $_REQUEST['stu_id']; 
-                
-        
-                $sql = "INSERT INTO feedback (stu_name, message, stu_id) 
+                    include('../elements/session.php');
+                    if (isset($_REQUEST['feedSubmitBtn'])) {
+                        // checking for empty field  
+                        if (isset($_REQUEST['feedSubmitBtn'])) {
+                            // checking for empty field  
+                            if (
+                                ($_REQUEST['stu_name'] == "") || ($_REQUEST['message'] == "") || ($_REQUEST['stu_id'] == "")
+                            ) {
+                                $alert_msg = '<div class="alert alert-danger">Fill All Fields</div>';
+                            } else {
+                                $stu_name = $_REQUEST['stu_name'];
+                                $message = $_REQUEST['message'];
+                                $stu_id = $_REQUEST['stu_id'];
+
+
+                                $sql = "INSERT INTO feedback (stu_name, message, stu_id) 
                     VALUES ('$stu_name', '$message','$stu_id') ";
-                if ($conn->query($sql) == TRUE) {
-                    $alert_msg = '<div class="alert alert-success">Feedback Added Successfully</div>';
-                } else {
-                    $alert_msg = '<div class="alert alert-danger">Unable To add Feedback </div>';
-                }
-                }
-                }
-                }
-                ?>
+                                if ($conn->query($sql) == TRUE) {
+                                    $alert_msg = '<div class="alert alert-success">Feedback Added Successfully</div>';
+                                } else {
+                                    $alert_msg = '<div class="alert alert-danger">Unable To add Feedback </div>';
+                                }
+                            }
+                        }
+                    }
+                    ?>
                     <!-- Page Wrapper -->
                     <div id="wrapper">
 
@@ -104,7 +104,11 @@
                                     <!-- Page Heading -->
                                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                                         <h1 class="h3 mb-0 text-gray-800">Write Feedback Post</h1>
-                                        <span><?php if(isset($alert_msg)){ echo $alert_msg;} ?></span>
+                                        <span>
+                                            <?php if (isset($alert_msg)) {
+                                                echo $alert_msg;
+                                            } ?>
+                                        </span>
                                     </div>
 
 
@@ -145,8 +149,8 @@
 
                             <!-- Footer -->
                             <?php
-                include('../elements/footer.php')
-                ?>
+                            include('../elements/footer.php')
+                                ?>
                             <!-- End of Footer -->
 
                         </div>
@@ -181,7 +185,7 @@
     </a>
 
 
-    <?php include('../elements/jsfile.php')    ?>
+    <?php include('../elements/jsfile.php') ?>
 
 
 

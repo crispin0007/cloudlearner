@@ -145,19 +145,19 @@
                             echo "Unable to delete data";
                         }
                     }
-                    if(isset($_REQUEST['approvecourse'])){
+                    if (isset($_REQUEST['approvecourse'])) {
                         $sql = "UPDATE coursedetails SET  status='1' WHERE course_id={$_REQUEST['id']}";
-                        if($conn ->query($sql) == TRUE){
+                        if ($conn->query($sql) == TRUE) {
                             echo '<div class="alert alert-success">Course Approved</div>';
                             echo '<meta http-equiv="refresh" content=0;URL=?approved />';
-                        }else{
+                        } else {
                             echo "Unable to Approve Course";
                         }
                     }
 
                     ?>
 
-                
+
 
                 </div>
                 <!-- /.container-fluid -->

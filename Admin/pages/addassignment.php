@@ -29,7 +29,7 @@
     include('../elements/session.php');
     if (isset($_REQUEST['assignSumBtn'])) {
         // checking for empty field  
-        if ( 
+        if (
             ($_REQUEST['assignment_name'] == "") || ($_REQUEST['assignment_description'] == "") ||
             ($_REQUEST['course_id'] == "") || ($_REQUEST['course_title'] == "")
         ) {
@@ -99,7 +99,7 @@
                             $course_id = $_SESSION['course_id'];
                             $course_title = $_SESSION['course_title'];
                         } else {
-                            // Handle the case when the session data is not available
+                            // Handling the case when the session data is not available
                             echo "Session data not found.";
                         }
                         ?>
@@ -139,7 +139,7 @@
                         <!-- upload image file  -->
 
                         <div class="form-outline mb-5">
-                            
+
                             <label for="courseimage">Upload assignment Document</label>
                             <input type="file" class="form-control-file" id="assignmentdoc" name="assignmentdoc" accept="application/msword, application/vnd.ms-excel, 
                             application/vnd.ms-powerpoint, text/plain, application/pdf, image/*">
@@ -148,8 +148,8 @@
 
                         <!--Submit Button -->
                         <button type=" submit" class="btn btn-primary btn-lg mb-4" id="assignSumBtn"
-                                name="assignSumBtn">Add Assignment</button>
-                            <a class=" btn btn-danger btn-lg mb-4" href="dashboard.php">Close</a>
+                            name="assignSumBtn">Add Assignment</button>
+                        <a class=" btn btn-danger btn-lg mb-4" href="dashboard.php">Close</a>
                     </form>
 
                 </div>

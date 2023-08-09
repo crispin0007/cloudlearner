@@ -26,26 +26,26 @@
 <body id="page-top">
     <?php include('../../database.php');
     include('../elements/session.php');
-    if(isset($_REQUEST['blogSubmitBtn'])){
+    if (isset($_REQUEST['blogSubmitBtn'])) {
         // checking for empty field  
         if (isset($_REQUEST['blogSubmitBtn'])) {
             // checking for empty field  
             if (
-                ($_REQUEST['blogtitle'] == "") || ($_REQUEST['blogauthor'] == "") || ($_REQUEST['topic'] == "") || 
+                ($_REQUEST['blogtitle'] == "") || ($_REQUEST['blogauthor'] == "") || ($_REQUEST['topic'] == "") ||
                 ($_REQUEST['blogdescription'] == "")
             ) {
                 $alert_msg = '<div class="alert alert-danger">Fill All Fields</div>';
             } else {
-                $blogtitle = $_REQUEST['blogtitle']; 
-                $blogauthor = $_REQUEST['blogauthor']; 
-                $topic = $_REQUEST['topic']; 
+                $blogtitle = $_REQUEST['blogtitle'];
+                $blogauthor = $_REQUEST['blogauthor'];
+                $topic = $_REQUEST['topic'];
                 $blogdescription = $_REQUEST['blogdescription'];
                 $blogimage = $_FILES['blogimage']['name'];
                 $blogimagetemp = $_FILES['blogimage']['tmp_name'];
                 $img_folder = '../../img/blogimage/' . $blogimage;
-                $img_folder_location = str_replace('../../', '', '../../img/blogimage/'.$blogimage);
+                $img_folder_location = str_replace('../../', '', '../../img/blogimage/' . $blogimage);
                 move_uploaded_file($blogimagetemp, $img_folder);
-        
+
                 $sql = "INSERT INTO blog_posts (post_title, post_author, post_topic, post_descrip, postimagelocation, post_image, status, stu_id) 
                     VALUES ('$blogtitle', '$blogauthor', '$topic', '$blogdescription', '$img_folder_location','$img_folder', '0', '$stu_id') ";
                 if ($conn->query($sql) == TRUE) {
@@ -53,9 +53,9 @@
                 } else {
                     $alert_msg = '<div class="alert alert-danger">Unable To add Blog Post <?php $originalprice ?></div>
     ';
-    }
-    }
-    }
+                }
+            }
+        }
     }
     ?>
     <!-- Page Wrapper -->
@@ -63,8 +63,8 @@
 
         <!-- Sidebar -->
         <?php
-                include('../elements/sidebar.php')
-                ?>
+        include('../elements/sidebar.php')
+            ?>
 
         <!-- End of Sidebar -->
 
@@ -77,7 +77,7 @@
                 <!-- Topbar -->
                 <?php
                 include('../elements/topnavbar.php')
-                ?>
+                    ?>
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
@@ -85,7 +85,11 @@
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Add New Blog Post</h1>
-                        <span><?php if(isset($alert_msg)){ echo $alert_msg;} ?></span>
+                        <span>
+                            <?php if (isset($alert_msg)) {
+                                echo $alert_msg;
+                            } ?>
+                        </span>
                     </div>
 
 
@@ -102,7 +106,8 @@
                             <!-- author name  -->
                             <div class="col">
                                 <div class="form-outline">
-                                    <input type="text" id="blogauthor" name="blogauthor" class="form-control" value=<?php echo $stu_name ?> readonly/>
+                                    <input type="text" id="blogauthor" name="blogauthor" class="form-control"
+                                        value=<?php echo $stu_name ?> readonly />
                                     <label class="form-label" for="blogauthor">Author Name</label>
                                 </div>
                             </div>
@@ -144,7 +149,7 @@
 
             <!-- Footer -->
             <?php
-                include('../elements/footer.php')
+            include('../elements/footer.php')
                 ?>
             <!-- End of Footer -->
 
@@ -161,7 +166,7 @@
 
 
 
-    <?php include('../elements/jsfile.php')    ?>
+    <?php include('../elements/jsfile.php') ?>
 
 
 </body>

@@ -30,8 +30,8 @@
 
         <!-- Sidebar -->
         <?php
-                include('../elements/sidebar.php')
-                ?>
+        include('../elements/sidebar.php')
+            ?>
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -43,7 +43,7 @@
                 <!-- Topbar -->
                 <?php
                 include('../elements/topnavbar.php')
-                ?>
+                    ?>
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
@@ -65,7 +65,7 @@
 
             <!-- Footer -->
             <?php
-                include('../elements/footer.php')
+            include('../elements/footer.php')
                 ?>
             <!-- End of Footer -->
 
@@ -82,7 +82,7 @@
 
 
 
-    <?php include('../elements/jsfile.php')    ?>
+    <?php include('../elements/jsfile.php') ?>
 
 
 </body>

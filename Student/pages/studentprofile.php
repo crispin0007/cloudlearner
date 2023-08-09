@@ -39,7 +39,7 @@
         if (isset($_SESSION['stu_name'])) {
             $student_name = $_SESSION['stu_name'];
         }
-        
+
         ?>
         <!-- End of Sidebar -->
 
@@ -111,8 +111,8 @@
                                             <div class="card mb-4">
                                                 <div class="card-body text-center">
                                                     <img src="<?php if (isset($row['stu_img']))
-                                                        echo $row['stu_img']; ?>"
-                                                        alt="avatar" class="rounded-circle img-fluid"
+                                                        echo $row['stu_img']; ?>" alt="avatar"
+                                                        class="rounded-circle img-fluid"
                                                         style="width: 300px; height:300px;">
                                                     <h5 class="my-3">
                                                         <?php echo $stu_name ?>
@@ -180,8 +180,7 @@
                                                         </div>
                                                         <div class="col-sm-9">
                                                             <input type="hidden" id="profilepic1" name="profilepic1"
-                                                                class="form-control"
-                                                                value="<?php if (isset($row['stu_img']))
+                                                                class="form-control" value="<?php if (isset($row['stu_img']))
                                                                     echo $row['stu_img']; ?>" />
                                                             <input type="file" class="form-control-file" id="profilepic"
                                                                 name="profilepic"

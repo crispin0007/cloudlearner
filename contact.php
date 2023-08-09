@@ -3,9 +3,9 @@
 
 <head>
     <title>Contact us | CloudLearner</title>
-    <?php 
-	include 'elements/topheader.php'
-	?>
+    <?php
+    include 'elements/topheader.php'
+        ?>
 
 </head>
 
@@ -16,9 +16,9 @@
     </div>
 
     <!-- Header section -->
-    <?php 
-	include 'elements/navbar.php'
-	?>
+    <?php
+    include 'elements/navbar.php'
+        ?>
     <!-- Header section end -->
 
 
@@ -89,9 +89,9 @@
 
 
     <!-- footer section -->
-    <?php 
-	include 'elements/footer.php'
-	?>
+    <?php
+    include 'elements/footer.php'
+        ?>
     <!-- footer section end -->
     <!--  -->
     <!-- load for map -->

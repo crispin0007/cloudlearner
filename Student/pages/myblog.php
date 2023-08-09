@@ -25,15 +25,15 @@
 
 <body id="page-top">
     <?php include('../../database.php');
-     include('../elements/session.php');   
+    include('../elements/session.php');
     ?>
     <!-- Page Wrapper -->
     <div id="wrapper">
 
         <!-- Sidebar -->
         <?php
-                include('../elements/sidebar.php')
-                ?>
+        include('../elements/sidebar.php')
+            ?>
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -45,7 +45,7 @@
                 <!-- Topbar -->
                 <?php
                 include('../elements/topnavbar.php')
-                ?>
+                    ?>
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
@@ -55,11 +55,11 @@
                         <h1 class="h3 mb-0 text-gray-800">Blog Posts</h1>
 
                     </div>
-                    <?php 
-                        $sql = "SELECT * FROM blog_posts WHERE stu_id='$stu_id'";
-                        $result = $conn -> query($sql);
-                        if($result ->num_rows > 0){
-                            echo '<table class="table align-middle mb-0 bg-white">
+                    <?php
+                    $sql = "SELECT * FROM blog_posts WHERE stu_id='$stu_id'";
+                    $result = $conn->query($sql);
+                    if ($result->num_rows > 0) {
+                        echo '<table class="table align-middle mb-0 bg-white">
                             <thead class="bg-light">
                                 <tr>
                                     <th>Blog ID</th>
@@ -70,9 +70,9 @@
                                 </tr>
                             </thead>
                             <tbody>';
-            
-                    while ($row = $result->fetch_assoc()) {
-                        echo '<tr>
+
+                        while ($row = $result->fetch_assoc()) {
+                            echo '<tr>
                                 <td>
                                     <span class="badge badge-success rounded-pill d-inline">' . $row["post_id"] . '</span>
                                 </td>
@@ -85,19 +85,19 @@
                                 </td>
                                 <td>
                                     <img src="" alt="Author Avatar" style="width: 45px; height: 45px" class="rounded-circle" />
-                                    <p class="fw-normal mb-1">' .$row["post_author"] . '</p>
+                                    <p class="fw-normal mb-1">' . $row["post_author"] . '</p>
                                 </td>
                                 <td>';
-                                if($row["status"] == 1){
-                                    echo '<span class="badge badge-success rounded-pill d-inline"> Active </span>';}
-                                    else{
-                                        echo '<span class="badge badge-warning rounded-pill d-inline"> Pending </span>';
-                                    }
-                                    echo '
+                            if ($row["status"] == 1) {
+                                echo '<span class="badge badge-success rounded-pill d-inline"> Active </span>';
+                            } else {
+                                echo '<span class="badge badge-warning rounded-pill d-inline"> Pending </span>';
+                            }
+                            echo '
                                 </td>
                                 <td>
                                 <form action="editblog.php" method="POST" class="d-inline">
-                                <input type="hidden" name="id" value="'.$row["post_id"]. '">
+                                <input type="hidden" name="id" value="' . $row["post_id"] . '">
                                 <button type="submit" name="viewblog" value="Viewblog" class="btn btn-primary btn-circle">
                                     <i class="fa-regular fa-pen-to-square"></i>
                                 </button>
@@ -112,25 +112,26 @@
                                     
                                 </td> 
                             </tr>';
-                    }
-            
-                    echo '</tbody>
-                        </table>';
-                        }else{
-                            echo "0 results";
-                        };
-                        // delete course 
-                        if(isset($_REQUEST['delete'])){
-                            $sql = "DELETE FROM blog_posts WHERE post_id={$_REQUEST['id']}";
-                            if($conn ->query($sql) == TRUE){
-                                echo '<meta http-equiv="refresh" content=0;URL=?deleted />';
-                            }else{
-                                echo "Unable to delete data";
-                            }
                         }
 
-                        
-                        ?>
+                        echo '</tbody>
+                        </table>';
+                    } else {
+                        echo "0 results";
+                    }
+                    ;
+                    // delete course 
+                    if (isset($_REQUEST['delete'])) {
+                        $sql = "DELETE FROM blog_posts WHERE post_id={$_REQUEST['id']}";
+                        if ($conn->query($sql) == TRUE) {
+                            echo '<meta http-equiv="refresh" content=0;URL=?deleted />';
+                        } else {
+                            echo "Unable to delete data";
+                        }
+                    }
+
+
+                    ?>
 
                     <div>
                         <a href="addblog.php" class="btn btn-primary btn-circle btn-lg "
@@ -147,7 +148,7 @@
 
             <!-- Footer -->
             <?php
-                include('../elements/footer.php')
+            include('../elements/footer.php')
                 ?>
             <!-- End of Footer -->
 
@@ -164,7 +165,7 @@
 
 
 
-    <?php include('../elements/jsfile.php')    ?>
+    <?php include('../elements/jsfile.php') ?>
 
 
 </body>

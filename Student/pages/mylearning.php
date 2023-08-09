@@ -185,12 +185,12 @@
           $result = $conn->query($sql);
           $sql1 = "SELECT * FROM lesson WHERE course_id= '$course_id' LIMIT 1;";
           $result1 = $conn->query($sql1);
-          
-          
-            $_SESSION['course_id'] = $course_id;
-            // $_SESSION['course_title'] = $row['course_title'];
+
+
+          $_SESSION['course_id'] = $course_id;
+          // $_SESSION['course_title'] = $row['course_title'];
         
-          
+
         }
         if ($result1->num_rows > 0) {
           $row1 = $result1->fetch_assoc();
@@ -248,7 +248,7 @@
 
       </div>
 
-<!-- ==================================================================== -->
+      <!-- ==================================================================== -->
 
 
       <div class="video-list-container1 text-center">
@@ -260,7 +260,7 @@
         <!-- <div class="row d-flex justify-content-center"> -->
         <div class="form-outline mb-4">
           <form action="" method="POST">
-            <input type="hidden" id="std_id" class="form-control" value="$stu_name"/>
+            <input type="hidden" id="std_id" class="form-control" value="$stu_name" />
             <input type="hidden" id="stu_id" class="form-control" value="$stu_id" />
             <input type="hidden" id="stu_email" class="form-control" value="$stu_email" />
             <input type="hidden" id="course_id" class="form-control" value="$course_id" />
@@ -275,8 +275,7 @@
             <p>Type your note, and hit enter to add it</p>
             <div class="d-flex justify-content-between">
               <div class="d-flex flex-row align-items-center">
-                <img src="../../img/profilepic/IMG20230511101100.jpg" alt="avatar" width="25"
-                  height="25" />
+                <img src="../../img/profilepic/IMG20230511101100.jpg" alt="avatar" width="25" height="25" />
                 <p class="small mb-0 ms-2">Johny</p>
               </div>
             </div>

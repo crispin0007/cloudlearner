@@ -26,35 +26,37 @@
 <body id="page-top">
     <?php include('../../database.php');
     include('../elements/session.php');
-    if(isset($_REQUEST['courseSubmitBtn'])){
+    if (isset($_REQUEST['courseSubmitBtn'])) {
         // checking for empty field  
-        if(($_REQUEST['coursetitle'] == "") || ($_REQUEST['authorname'] == "") || ($_REQUEST['courseduration'] == "") || 
-        ($_REQUEST['originalprice'] == "") || ($_REQUEST['sellingprice'] == "") || ($_REQUEST['category'] == "") || 
-        ($_REQUEST['coursetitle'] == "") || ($_REQUEST['description'] == "")){
-            $alert_msg ='<div class="alert alert-danger">Fill All Fields</div>';
-        }else{
-            $coursetitle =$_REQUEST['coursetitle']; 
-            $authorname =$_REQUEST['authorname']; 
-            $courseduration =$_REQUEST['courseduration']; 
-            $originalprice =$_REQUEST['originalprice'];
-            $sellingprice =$_REQUEST['sellingprice'];
-            $category =$_REQUEST['category']; 
-            $coursetitle =$_REQUEST['coursetitle']; 
-            $description =$_REQUEST['description'];
-            $courseimage =$_FILES['courseimage']['name'];
-            $courseimagetemp =$_FILES['courseimage']['tmp_name'];
-            $img_folder = '../../img/courseimg/'.$courseimage;
-            $img_folder_location = str_replace('../../', '', '../../img/courseimg/'.$courseimage);
+        if (
+            ($_REQUEST['coursetitle'] == "") || ($_REQUEST['authorname'] == "") || ($_REQUEST['courseduration'] == "") ||
+            ($_REQUEST['originalprice'] == "") || ($_REQUEST['sellingprice'] == "") || ($_REQUEST['category'] == "") ||
+            ($_REQUEST['coursetitle'] == "") || ($_REQUEST['description'] == "")
+        ) {
+            $alert_msg = '<div class="alert alert-danger">Fill All Fields</div>';
+        } else {
+            $coursetitle = $_REQUEST['coursetitle'];
+            $authorname = $_REQUEST['authorname'];
+            $courseduration = $_REQUEST['courseduration'];
+            $originalprice = $_REQUEST['originalprice'];
+            $sellingprice = $_REQUEST['sellingprice'];
+            $category = $_REQUEST['category'];
+            $coursetitle = $_REQUEST['coursetitle'];
+            $description = $_REQUEST['description'];
+            $courseimage = $_FILES['courseimage']['name'];
+            $courseimagetemp = $_FILES['courseimage']['tmp_name'];
+            $img_folder = '../../img/courseimg/' . $courseimage;
+            $img_folder_location = str_replace('../../', '', '../../img/courseimg/' . $courseimage);
             move_uploaded_file($courseimagetemp, $img_folder);
 
             $sql = "INSERT INTO coursedetails (course_title, oprice, category, coursedescription, courseimage, author, sprice, duration, imagelocation, status) 
             VALUES ('$coursetitle', '$originalprice', '$category', '$description', '$img_folder', '$authorname', '$sellingprice','$courseduration', '$img_folder_location', '1') ";
-            if($conn->query($sql) == TRUE){
-                $alert_msg ='<div class="alert alert-success">Course Uploaded Successfully</div>';
-            }else{
-                $alert_msg ='<div class="alert alert-danger">Unable To add Course <?php $originalprice ?></div>';
-    }
-    }
+            if ($conn->query($sql) == TRUE) {
+                $alert_msg = '<div class="alert alert-success">Course Uploaded Successfully</div>';
+            } else {
+                $alert_msg = '<div class="alert alert-danger">Unable To add Course <?php $originalprice ?></div>';
+            }
+        }
     }
     ?>
     <!-- Page Wrapper -->
@@ -62,8 +64,8 @@
 
         <!-- Sidebar -->
         <?php
-                include('../elements/sidebar.php')
-                ?>
+        include('../elements/sidebar.php')
+            ?>
 
         <!-- End of Sidebar -->
 
@@ -76,7 +78,7 @@
                 <!-- Topbar -->
                 <?php
                 include('../elements/topnavbar.php')
-                ?>
+                    ?>
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
@@ -84,7 +86,11 @@
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Add New Courses</h1>
-                        <span><?php if(isset($alert_msg)){ echo $alert_msg;} ?></span>
+                        <span>
+                            <?php if (isset($alert_msg)) {
+                                echo $alert_msg;
+                            } ?>
+                        </span>
                     </div>
 
 
@@ -168,7 +174,7 @@
 
             <!-- Footer -->
             <?php
-                include('../elements/footer.php')
+            include('../elements/footer.php')
                 ?>
             <!-- End of Footer -->
 
@@ -185,7 +191,7 @@
 
 
 
-    <?php include('../elements/jsfile.php')    ?>
+    <?php include('../elements/jsfile.php') ?>
 
 
 </body>

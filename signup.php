@@ -4,81 +4,81 @@
 <head>
 
     <title>About Us | CloudLearner</title>
-    <?php 
-	include 'elements/topheader.php'
-	?>
+    <?php
+    include 'elements/topheader.php'
+        ?>
 </head>
 
 <body>
     <style>
-    .containers {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 90vh;
-        /* margin-top: 58px; */
-    }
-
-    .form-container {
-        background-color: #fff;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        max-width: 400px;
-        width: 100%;
-    }
-
-    .form-container h2 {
-        text-align: center;
-        margin-bottom: 20px;
-    }
-
-    .form-group {
-        margin-bottom: 20px;
-    }
-
-    .form-group label {
-        display: block;
-        margin-bottom: 5px;
-        font-weight: bold;
-    }
-
-    .form-group input {
-        width: 100%;
-        padding: 8px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-    }
-
-    .form-group button {
-        width: 100%;
-        padding: 8px;
-        background-color: hsl(260, 39%, 49%);
-        color: #fff;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-    }
-
-    .form-group button:hover {
-        background-color: hsl(260, 39%, 49%);
-    }
-
-    .form-group .switch-form {
-        text-align: center;
-        margin-top: 10px;
-    }
-
-    .form-group .switch-form a {
-        text-decoration: none;
-        color: hsl(260, 39%, 49%);
-    }
-
-    @media (max-width: 480px) {
-        .form-container {
-            padding: 20px;
+        .containers {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 90vh;
+            /* margin-top: 58px; */
         }
-    }
+
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .form-group button {
+            width: 100%;
+            padding: 8px;
+            background-color: hsl(260, 39%, 49%);
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .form-group button:hover {
+            background-color: hsl(260, 39%, 49%);
+        }
+
+        .form-group .switch-form {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .form-group .switch-form a {
+            text-decoration: none;
+            color: hsl(260, 39%, 49%);
+        }
+
+        @media (max-width: 480px) {
+            .form-container {
+                padding: 20px;
+            }
+        }
     </style>
 
     <!-- Page Preloder -->
@@ -86,9 +86,9 @@
         <div class="loader"></div>
     </div>
     <!-- Header section -->
-    <?php 
-	include 'elements/navbar.php'
-	?>
+    <?php
+    include 'elements/navbar.php'
+        ?>
     <!-- Header section end -->
     <div class="page-info-section set-bg" data-setbg="img/page-bg/4.jpg">
         <div class="container">
@@ -136,9 +136,9 @@
     </div>
     <!-- Form End -->
 
-    <?php 
-	include 'elements/footer.php'
-	?>
+    <?php
+    include 'elements/footer.php'
+        ?>
 </body>
 
 </html>

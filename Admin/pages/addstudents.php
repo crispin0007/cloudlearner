@@ -26,26 +26,28 @@
 <body id="page-top">
     <?php include('../../database.php');
     include('../elements/session.php');
-    if(isset($_REQUEST['stdSubmitBtn'])){
+    if (isset($_REQUEST['stdSubmitBtn'])) {
         // checking for empty field  
-        if(($_REQUEST['stdname'] == "") || ($_REQUEST['stdemail'] == "") || ($_REQUEST['stdpass'] == "") || 
-        ($_REQUEST['stdocc'] == "") ){
-            $alert_msg ='<div class="alert alert-danger">Fill All Fields</div>';
-        }else{
-            $stdname =$_REQUEST['stdname']; 
-            $stdemail =$_REQUEST['stdemail']; 
-            $stdpass =$_REQUEST['stdpass']; 
-            $stdocc =$_REQUEST['stdocc'];
-            
+        if (
+            ($_REQUEST['stdname'] == "") || ($_REQUEST['stdemail'] == "") || ($_REQUEST['stdpass'] == "") ||
+            ($_REQUEST['stdocc'] == "")
+        ) {
+            $alert_msg = '<div class="alert alert-danger">Fill All Fields</div>';
+        } else {
+            $stdname = $_REQUEST['stdname'];
+            $stdemail = $_REQUEST['stdemail'];
+            $stdpass = $_REQUEST['stdpass'];
+            $stdocc = $_REQUEST['stdocc'];
+
 
             $sql = "INSERT INTO student (stu_name, stu_email, stu_pass, stu_occ) 
             VALUES ('$stdname', '$stdemail', '$stdpass', '$stdocc') ";
-            if($conn->query($sql) == TRUE){
-                $alert_msg ='<div class="alert alert-success">Student Added Successfully</div>';
-            }else{
-                $alert_msg ='<div class="alert alert-danger">Unable To add Student </div>';
-    }
-    }
+            if ($conn->query($sql) == TRUE) {
+                $alert_msg = '<div class="alert alert-success">Student Added Successfully</div>';
+            } else {
+                $alert_msg = '<div class="alert alert-danger">Unable To add Student </div>';
+            }
+        }
     }
     ?>
     <!-- Page Wrapper -->
@@ -53,8 +55,8 @@
 
         <!-- Sidebar -->
         <?php
-                include('../elements/sidebar.php')
-                ?>
+        include('../elements/sidebar.php')
+            ?>
 
         <!-- End of Sidebar -->
 
@@ -67,7 +69,7 @@
                 <!-- Topbar -->
                 <?php
                 include('../elements/topnavbar.php')
-                ?>
+                    ?>
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
@@ -75,7 +77,11 @@
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Add New Student</h1>
-                        <span><?php if(isset($alert_msg)){ echo $alert_msg;} ?></span>
+                        <span>
+                            <?php if (isset($alert_msg)) {
+                                echo $alert_msg;
+                            } ?>
+                        </span>
                     </div>
 
 
@@ -125,7 +131,7 @@
 
             <!-- Footer -->
             <?php
-                include('../elements/footer.php')
+            include('../elements/footer.php')
                 ?>
             <!-- End of Footer -->
 
@@ -142,7 +148,7 @@
 
 
 
-    <?php include('../elements/jsfile.php')    ?>
+    <?php include('../elements/jsfile.php') ?>
 
 
 </body>

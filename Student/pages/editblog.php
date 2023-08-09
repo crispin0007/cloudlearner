@@ -60,19 +60,19 @@
 
 
 
-                if(empty($_FILES['courseimage']['name'])){
-                
-                    $img_folder =$_REQUEST['postimage'];
-                    $img_folder_location = str_replace('../../', '', '../../img/courseimg/'.$img_folder);
-                }else{
+                if (empty($_FILES['courseimage']['name'])) {
+
+                    $img_folder = $_REQUEST['postimage'];
+                    $img_folder_location = str_replace('../../', '', '../../img/courseimg/' . $img_folder);
+                } else {
                     $blogimage = $_FILES['blogimage']['name'];
                     $blogimagetemp = $_FILES['blogimage']['tmp_name'];
                     $img_folder = '../../img/blogimage/' . $blogimage;
                     $img_folder_location = str_replace('../../', '', '../../img/blogimage/' . $blogimage);
                     move_uploaded_file($blogimagetemp, $img_folder);
-                    
+
                 }
-                
+
 
                 $sql = "UPDATE blog_posts SET post_title='$blogtitle', post_author='$blogauthor', post_topic='$topic', post_descrip='$blogdescription', 
                 postimagelocation='$img_folder_location', post_image='$img_folder' WHERE post_id=$postid";
@@ -130,8 +130,7 @@
 
                         <!-- blog ID -->
                         <div class=" form-outline mb-4">
-                            <input type="text" id="postid" name="postid" class="form-control"
-                                value="<?php if (isset($row['post_id']))
+                            <input type="text" id="postid" name="postid" class="form-control" value="<?php if (isset($row['post_id']))
                                 echo $row['post_id']; ?>" readonly />
                             <label class="form-label" for="blogtitle">Blog ID</label>
                         </div>

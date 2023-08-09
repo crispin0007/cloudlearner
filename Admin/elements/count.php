@@ -1,5 +1,5 @@
 <?php
-// Your table name
+
 $tableName = 'coursedetails';
 
 // One-liner to count the number of rows in the table

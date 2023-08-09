@@ -4,46 +4,47 @@
 <head>
     <title>CheckOut | CLoudLearner</title>
     <script src="https://khalti.s3.ap-south-1.amazonaws.com/KPG/dist/2020.12.17.0.0.0/khalti-checkout.iffe.js"></script>
-    <?php 
-	include 'elements/topheader.php';
-	include 'database.php';
-	?>
     <?php
-    if(!isset($_SESSION)){
+    include 'elements/topheader.php';
+    include 'database.php';
+    ?>
+    <?php
+    if (!isset($_SESSION)) {
         @session_start();
     }
-    if(isset($_SESSION['stu_is_login'])){
+    if (isset($_SESSION['stu_is_login'])) {
         $stuLogEmail = $_SESSION['stuLogEmail'];
-    }else{
-        echo"<script>location.href='login.php'</script>";
-    }; ?>
+    } else {
+        echo "<script>location.href='login.php'</script>";
+    }
+    ; ?>
 
-    <?php 
-    if(isset($_GET['course_id'])){
-       $course_id = $_GET['course_id'];
+    <?php
+    if (isset($_GET['course_id'])) {
+        $course_id = $_GET['course_id'];
         $sql = "SELECT * FROM coursedetails WHERE course_id='$course_id'";
         $result = $conn->query($sql);
         $row = $result->fetch_assoc();
         $course_name = $row['course_title'];
         $course_image = $row['imagelocation'];
         $course_price = $row['sprice'];
-        
+
     }
-?>
+    ?>
 </head>
 
 <body>
     <style>
-    .body {
-        /* fallback for old browsers */
-        background: #6a11cb;
+        .body {
+            /* fallback for old browsers */
+            background: #6a11cb;
 
-        /* Chrome 10-25, Safari 5.1-6 */
-        background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+            /* Chrome 10-25, Safari 5.1-6 */
+            background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
 
-        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-        background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))
-    }
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))
+        }
     </style>
     <!-- Page Preloder 
     -->
@@ -52,9 +53,9 @@
     </div>
 
     <!-- Header section -->
-    <?php 
-		include 'elements/navbar.php'
-	?>
+    <?php
+    include 'elements/navbar.php'
+        ?>
     <section class="hero-section set-bg" data-setbg="img/bg.jpg" style="height:150px;">
         <div class=" container">
             <div class="hero-text text-white">
@@ -69,7 +70,7 @@
                 <div class="row d-flex justify-content-center my-4">
                     <div class="col-md-8">
                         <div class="card mb-4">
-                        
+
 
                             <div class="card-header py-3">
                                 <h5 class="mb-0">Check Out</h5>
@@ -93,7 +94,9 @@
 
                                     <div class="col-lg-5 col-md-6 mb-4 mb-lg-0">
                                         <!-- Data -->
-                                        <p><strong><?php echo "$course_name"; ?></strong></p>
+                                        <p><strong>
+                                                <?php echo "$course_name"; ?>
+                                            </strong></p>
 
                                         <button type="button" class="btn btn-primary btn-sm me-1 mb-2"
                                             data-mdb-toggle="tooltip" title="Remove item">
@@ -109,7 +112,9 @@
                                     <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
                                         <!-- Price -->
                                         <p class="text-start text-md-center">
-                                            <strong class="h4">Rs. <?php echo $course_price ?></strong>
+                                            <strong class="h4">Rs.
+                                                <?php echo $course_price ?>
+                                            </strong>
                                         </p>
                                         <!-- Price -->
                                     </div>
@@ -150,7 +155,9 @@
                                     <li
                                         class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
                                         Products
-                                        <span>Rs. <?php echo $course_price ?></span>
+                                        <span>Rs.
+                                            <?php echo $course_price ?>
+                                        </span>
                                     </li>
 
                                     <li
@@ -161,27 +168,29 @@
                                                 <p class="mb-0">(including VAT)</p>
                                             </strong>
                                         </div>
-                                        <span><strong>Rs. <?php echo $course_price ?></strong></span>
+                                        <span><strong>Rs.
+                                                <?php echo $course_price ?>
+                                            </strong></span>
                                     </li>
                                 </ul>
-<!-- =========================================================================================================== -->
-<?php
-                                    $sql = "SELECT course_id, stu_id FROM payment WHERE stu_email = '$stuLogEmail' AND course_id = '$course_id'";
-                                    $result = $conn -> query($sql);
+                                <!-- =========================================================================================================== -->
+                                <?php
+                                $sql = "SELECT course_id, stu_id FROM payment WHERE stu_email = '$stuLogEmail' AND course_id = '$course_id'";
+                                $result = $conn->query($sql);
 
-                                    if ($result-> num_rows > 0) {
-                                        echo '<a class="btn btn-danger btn-lg btn-block" href="Student/pages/mycourses.php" >
+                                if ($result->num_rows > 0) {
+                                    echo '<a class="btn btn-danger btn-lg btn-block" href="Student/pages/mycourses.php" >
                                         Continue Learning
                                     </a>';
-                                    } else {
-                                        echo '<button class="btn btn-danger btn-lg btn-block" id="payment-button">
+                                } else {
+                                    echo '<button class="btn btn-danger btn-lg btn-block" id="payment-button">
                                         Enroll Now
                                     </button>';
-                                    }
-                                
-                        ?>
-<!-- =========================================================================================================== -->
-                                
+                                }
+
+                                ?>
+                                <!-- =========================================================================================================== -->
+
 
 
                             </div>
@@ -191,9 +200,9 @@
             </div>
         </section>
     </div>
-    
-<script>
-    var config = {
+
+    <script>
+        var config = {
             // replace the publicKey with yours
             "publicKey": "test_public_key_212a87eb55d547db9d6a839a4544c510",
             "productIdentity": "<?php echo "$course_id"; ?>",
@@ -205,30 +214,30 @@
                 "MOBILE_BANKING",
                 "CONNECT_IPS",
                 "SCT",
-                ],
+            ],
             "eventHandler": {
-                onSuccess (payload) {
+                onSuccess(payload) {
                     // hit merchant api for initiating verfication
                     console.log(payload);
                     window.location.href = "Student/pages/mycourses.php";
                     $.ajax({
-                    type: "POST",
-                    url: "Admin/pages/process_pyment.php",
-                    data: {
-                    payload: payload
+                        type: "POST",
+                        url: "Admin/pages/process_pyment.php",
+                        data: {
+                            payload: payload
 
-                    },success: function(response) {
-                    console.log(response);
-                    },
-                    error: function(xhr, status, error) {
-                    console.error(error);
-                    }
+                        }, success: function (response) {
+                            console.log(response);
+                        },
+                        error: function (xhr, status, error) {
+                            console.error(error);
+                        }
                     });
                 },
-                onError (error) {
+                onError(error) {
                     console.log(error);
                 },
-                onClose () {
+                onClose() {
                     console.log('widget is closing');
                 }
             }
@@ -240,15 +249,15 @@
 
         btn.onclick = function () {
             // minimum transaction amount must be 10, i.e 1000 in paisa.
-            checkout.show({amount: amountInPaisa});
+            checkout.show({ amount: amountInPaisa });
         }
-</script>
+    </script>
 
 
     < <!-- footer section -->
-        <?php 
-	include 'elements/footer.php';
-	?>
+        <?php
+        include 'elements/footer.php';
+        ?>
         <!-- footer section end -->
 
 

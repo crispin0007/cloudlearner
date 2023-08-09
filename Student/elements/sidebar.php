@@ -40,7 +40,7 @@
             <span>My Courses</span>
         </a>
     </li>
-    
+
     <!-- Nav Item - Add blog -->
     <li class="nav-item">
         <a class="nav-link" href="addblog.php">

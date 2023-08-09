@@ -22,7 +22,7 @@
     <link href="../../css/admin/admin-dash.min.css" rel="stylesheet">
 
 </head>
-  
+
 <body id="page-top">
 
     <!-- Page Wrapper -->
@@ -30,10 +30,10 @@
 
         <!-- Sidebar -->
         <?php
-                include('../../database.php');
-                include('../elements/sidebar.php');
-                include('../elements/session.php');
-                ?>
+        include('../../database.php');
+        include('../elements/sidebar.php');
+        include('../elements/session.php');
+        ?>
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -45,7 +45,7 @@
                 <!-- Topbar -->
                 <?php
                 include('../elements/topnavbar.php')
-                ?>
+                    ?>
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
@@ -55,20 +55,20 @@
                         <h1 class="h3 mb-0 text-gray-800">Student Dashboard</h1>
                     </div>
                     <?php
-                        $_SESSION['stu_img'] = $stu_img;
-                        if (isset($_SESSION['stu_name'])) {
-                            $student_name = $_SESSION['stu_name'];
-                            echo "<h1>Welcome, $student_name!</h1>";
-                        }
-                        if (isset($_SESSION['stu_img'])) {
-                            
-                            $stu_img = $_SESSION['stu_img'];
-                        }
+                    $_SESSION['stu_img'] = $stu_img;
+                    if (isset($_SESSION['stu_name'])) {
+                        $student_name = $_SESSION['stu_name'];
+                        echo "<h1>Welcome, $student_name!</h1>";
+                    }
+                    if (isset($_SESSION['stu_img'])) {
+
+                        $stu_img = $_SESSION['stu_img'];
+                    }
                     ?>
                     <!-- Content Row -->
                     <div class="row">
 
-                       
+
                     </div>
 
                     <!-- Content Row -->
@@ -81,7 +81,7 @@
 
             <!-- Footer -->
             <?php
-                include('../elements/footer.php')
+            include('../elements/footer.php')
                 ?>
             <!-- End of Footer -->
 
@@ -97,7 +97,7 @@
     </a>
 
 
-    <?php include('../elements/jsfile.php')    ?>
+    <?php include('../elements/jsfile.php') ?>
 
 
 

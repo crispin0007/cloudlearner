@@ -2,8 +2,10 @@
 include('../../database.php');
 include('../../Student/elements/session.php');
 
-if(isset($_SESSION['stu_is_login'])){
-    $stuLogEmail = $_SESSION['stuLogEmail'];};
+if (isset($_SESSION['stu_is_login'])) {
+    $stuLogEmail = $_SESSION['stuLogEmail'];
+}
+;
 
 
 
