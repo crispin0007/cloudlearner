@@ -219,85 +219,104 @@
               echo '  </div>';
             }
             ?>
-            </div>
-            <div class="container">
-              <hr>
-              <div class="h3 text-danger font-weight-bold text-center">COURSE RELEATED STUFF: </div>
-            </div>
-
+          </div>
+          <div class="container">
             <hr>
-            <div class="container1">
-              <div class="video-list-container1">
-                <div class="list bg-danger ">
-                  <h3 class="list-title text-white">ASSIGNMENT</h3>
-                </div>
-                <!-- <div class="row d-flex justify-content-center"> -->
-                <div class="card mt-2">
-                  <div class="card-body">
-                    <?php
-                    $sql = "SELECT * FROM assignment  WHERE course_id='$course_id' ";
-                    $result = $conn->query($sql);
-                    if ($result->num_rows > 0) {
-                      while ($assignment = $result->fetch_assoc()) {
-                        ?>
-                        <div class="d-flex justify-content-between m-2">
-                          <div class="d-flex flex-row align-items-center">
-                            <a href="<?php echo $assignment['doc_location']; ?>" class="btn btn-primary mr-2">Download Task</a>
-                            <p class="small mb-0 ms-2">
-                              <?php echo $assignment['assignment_name']; ?>
-                            </p>
-                          </div>
+            <div class="h3 text-danger font-weight-bold text-center">COURSE RELEATED STUFF: </div>
+          </div>
+
+          <hr>
+          <div class="container1">
+            <div class="video-list-container1">
+              <div class="list bg-danger ">
+                <h3 class="list-title text-white">ASSIGNMENT</h3>
+              </div>
+              <!-- <div class="row d-flex justify-content-center"> -->
+              <div class="card mt-2">
+                <div class="card-body">
+                  <?php
+                  $sql = "SELECT * FROM assignment  WHERE course_id='$course_id' ";
+                  $result = $conn->query($sql);
+                  if ($result->num_rows > 0) {
+                    while ($assignment = $result->fetch_assoc()) {
+                      ?>
+                      <div class="d-flex justify-content-between m-2">
+                        <div class="d-flex flex-row align-items-center">
+                          <a href="<?php echo $assignment['doc_location']; ?>" class="btn btn-primary mr-2">Download Task</a>
+                          <p class="small mb-0 ms-2">
+                            <?php echo $assignment['assignment_name']; ?>
+                          </p>
                         </div>
-                        <?php
-                      }
-                    } else {
-                      echo "No Assignment found for the Course.";
-                    } ?>
-                  </div>
+                      </div>
+                      <?php
+                    }
+                  } else {
+                    echo "No Assignment found for the Course.";
+                  } ?>
                 </div>
               </div>
-              <!-- </div> -->
+            </div>
+            <!-- </div> -->
 
 
-              <!-- </div> -->
+            <!-- </div> -->
 
 
-              <!-- ==================================================================== -->
+            <!-- ==================================================================== -->
 
 
-              <div class="video-list-container1 text-center">
-                <div class="list bg-danger">
+            <div class="video-list-container1 text-center">
+              <div class="list bg-danger">
 
-                  <h3 class="list-title text-white">COMMENT</h3>
-                </div>
-                <!-- ================================== -->
-                <!-- <div class="row d-flex justify-content-center"> -->
-                <div class="form-outline mb-4">
-                  <form action="" method="POST">
-                    <input type="hidden" id="std_id" class="form-control" value="$stu_name" />
-                    <input type="hidden" id="stu_id" class="form-control" value="$stu_id" />
-                    <input type="hidden" id="stu_email" class="form-control" value="$stu_email" />
-                    <input type="hidden" id="course_id" class="form-control" value="$course_id" />
-                    <input type="text" id="addcomment" class="form-control" placeholder="Add Your Comment ..." />
-                    <label class="form-label" for="addANote"></label>
-                    <button class="btn btn-success mt-2" onclick="addComment()">+ Add a Comment</button>
-                  </form>
-                </div>
-                <hr>
-                <div class="card mt-2">
-                  <div class="card-body">
-                    <p>Type your note, and hit enter to add it</p>
-                    <div class="d-flex justify-content-between">
-                      <div class="d-flex flex-row align-items-center">
-                        <img src="../../img/profilepic/IMG20230511101100.jpg" alt="avatar" width="25" height="25" />
-                        <p class="small mb-0 ms-2">Johny</p>
-                      </div>
+                <h3 class="list-title text-white">COMMENT</h3>
+              </div>
+              <!-- ================================== -->
+              <!-- <div class="row d-flex justify-content-center"> -->
+              <div class="form-outline mb-4">
+                <form action="" method="POST">
+                  <input type="hidden" id="stu_id" class="form-control" value="<?php echo $stu_id; ?>" />
+                  <input type="hidden" id="stu_name" class="form-control" value="<?php echo $stu_name; ?>" />
+                  <input type="hidden" id="stu_email" class="form-control" value="<?php echo $stu_email; ?>" />
+                  <input type="hidden" id="course_id" class="form-control" value="<?php echo $course_id; ?>" />
+                  <input type="text" id="addcomment" class="form-control" placeholder="Add Your Comment ..." />
+                  <label class="form-label" for="addANote"></label>
+                  <button class="btn btn-success mt-2" type="button" onclick="addComment()">+ Add a Comment</button>
+                </form>
+
+                <!-- <script src="comment.js"></script> -->
+
+              </div>
+              <hr>
+              <div class="card mt-2">
+              <?php
+                  $sql = "SELECT * FROM comments  WHERE course_id='$course_id' ";
+                  $result = $conn->query($sql);
+                  if ($result->num_rows > 0) {
+                    while ($comments = $result->fetch_assoc()) {
+                      ?>
+                <div class="card-body">
+                  <div class="div text-left">
+                  <?php echo $comments['comment']; ?>
+                  </div>
+                  
+                  <div class="d-flex justify-content-between">
+                    <div class="d-flex flex-row align-items-center">
+                      <blockquote class="blockquote pb-2">
+                        <p class="small mb-0 ms-2"><?php echo $comments['stu_name']; ?></p>
+                      </blockquote>
                     </div>
                   </div>
+                  <p class="text-danger text-left">Type your Comment, and hit enter to add it</p>
                 </div>
+                <?php
+                    }
+                  } else {
+                    echo "No Comments found for the Course. Add Comment";
+                  } ?>
               </div>
-              <!-- </div> -->
-              <?php
+            </div>
+            <!-- </div> -->
+            <?php
 
 
 
@@ -315,48 +334,48 @@
 
         ?>
 
-        </div>
-
       </div>
 
-
-
-
-
-
-      <script>
-        let videoList = document.querySelectorAll('.video-list-container1 .list');
-
-        videoList.forEach(vid => {
-          vid.onclick = () => {
-            videoList.forEach(remove => { remove.classList.remove('active') });
-            vid.classList.add('active');
-            let src = vid.querySelector('.list-video').src;
-            let title = vid.querySelector('.list-title').innerHTML;
-            document.querySelector('.main-video-container1 .main-video').src = src;
-            document.querySelector('.main-video-container1 .main-video').play();
-            document.querySelector('.main-video-container1 .main-vid-title').innerHTML = title;
-          };
-        });
-      </script>
-      <!-- End of Content Wrapper -->
-
     </div>
-    <!-- End of Page Wrapper -->
 
 
 
 
-    <sprit>
 
 
-      </script>
+    <script>
+      let videoList = document.querySelectorAll('.video-list-container1 .list');
+
+      videoList.forEach(vid => {
+        vid.onclick = () => {
+          videoList.forEach(remove => { remove.classList.remove('active') });
+          vid.classList.add('active');
+          let src = vid.querySelector('.list-video').src;
+          let title = vid.querySelector('.list-title').innerHTML;
+          document.querySelector('.main-video-container1 .main-video').src = src;
+          document.querySelector('.main-video-container1 .main-video').play();
+          document.querySelector('.main-video-container1 .main-vid-title').innerHTML = title;
+        };
+      });
+    </script>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
 
 
-      <?php
-      include('../elements/footer.php')
-        ?>
-      <?php include('../elements/jsfile.php') ?>
+
+
+  <sprit>
+
+
+    </script>
+
+
+    <?php
+    include('../elements/footer.php')
+      ?>
+    <?php include('../elements/jsfile.php') ?>
 
 </body>
 
