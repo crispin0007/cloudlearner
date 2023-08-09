@@ -241,7 +241,7 @@
             ?>
             <div class="d-flex justify-content-between m-2">
               <div class="d-flex flex-row align-items-center">
-                <a href="" class="btn btn-primary mr-2">Download Task</a>
+                <a href="<?php echo $assignment['doc_location']; ?>" class="btn btn-primary mr-2">Download Task</a>
                 <p class="small mb-0 ms-2"><?php echo $assignment['assignment_name']; ?></p>
               </div>
             </div>

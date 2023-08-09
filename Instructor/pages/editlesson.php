@@ -60,7 +60,7 @@
             if (empty($_FILES['lessonvideo']['name'])) {
 
                 $vid_folder = $_REQUEST['videolocation1'];
-                $vlocation = str_replace('../../', '', '../../img/courseimg/' . $vid_folder);
+                $vlocation = str_replace('../../', '', $vid_folder);
             } else {
                 $lessonvideo = $_FILES['lessonvideo']['name'];
                 $lessonlinktemp = $_FILES['lessonvideo']['tmp_name'];

@@ -57,7 +57,7 @@
             $course_title =$_REQUEST['course_title'];
             if(empty($_FILES['assignmentdoc']['name'])){
                 $doc_folder =$_REQUEST['documentlocation'];
-                $doc_folder_location = str_replace('../../', '', '../../img/courseimg/'.$doc_folder);
+                $doc_folder_location = str_replace('../../', '', $doc_folder);
             }else{
                 $assignmentdoc =$_FILES['assignmentdoc']['name'];
                 $assignmentlinktemp =$_FILES['assignmentdoc']['tmp_name'];
