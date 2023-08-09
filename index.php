@@ -131,7 +131,7 @@
         <div class="course-warp">
             <ul class="course-filter controls">
                 <li class="control active" data-filter="all">All</li>
-                <li class="control" data-filter=".aws">AWS</li>
+                <li class="control" data-filter=".AWS">AWS</li>
                 <li class="control" data-filter=".Azure">AZURE</li>
                 <li class="control" data-filter=".GCP">GCP</li>
                 <li class="control" data-filter=".cloud-computing">Cloud Computing</li>

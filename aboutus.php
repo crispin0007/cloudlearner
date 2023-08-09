@@ -45,13 +45,13 @@
                     <!-- Row -->
                     <div class="row">
                         <div class="col-md-12">
-                            <img src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/team/t1.jpg"
+                            <img src="img/teams/sudip.jpg"
                                 alt="wrapkit" class="img-fluid rounded-circle" />
                         </div>
                         <div class="col-md-12 text-center">
                             <div class="pt-2">
                                 <h5 class="mt-4 font-weight-medium mb-0">Sudip Sharma</h5>
-                                <h6 class="subtitle mb-3">Mesource Manager</h6>
+                                <h6 class="subtitle mb-3">Resource Manager</h6>
                                 <p>You can relay on our amazing features list and also our customer services will be
                                     great experience.</p>
                                 <ul class="list-inline">
@@ -79,7 +79,7 @@
                     <!-- Row -->
                     <div class="row">
                         <div class="col-md-12">
-                            <img src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/team/t1.jpg"
+                            <img src="img/teams/lalit.jpg"
                                 alt="wrapkit" class="img-fluid rounded-circle" />
                         </div>
                         <div class="col-md-12 text-center">
@@ -113,12 +113,12 @@
                     <!-- Row -->
                     <div class="row">
                         <div class="col-md-12">
-                            <img src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/team/t1.jpg"
+                            <img src="img/teams/salon.jpg"
                                 alt="wrapkit" class="img-fluid rounded-circle" />
                         </div>
                         <div class="col-md-12 text-center">
                             <div class="pt-2">
-                                <h5 class="mt-4 font-weight-medium mb-0">Solon Timalsina</h5>
+                                <h5 class="mt-4 font-weight-medium mb-0">Salon Timalsina</h5>
                                 <h6 class="subtitle mb-3">Frontend Developer</h6>
                                 <p>You can relay on our amazing features list and also our customer services will be
                                     great experience.</p>
@@ -147,13 +147,13 @@
                     <!-- Row -->
                     <div class="row">
                         <div class="col-md-12">
-                            <img src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/team/t2.jpg"
+                            <img src="img/teams/sabina.jpg"
                                 alt="wrapkit" class="img-fluid rounded-circle" />
                         </div>
                         <div class="col-md-12 text-center">
                             <div class="pt-2">
                                 <h5 class="mt-4 font-weight-medium mb-0">Sabina Mahato</h5>
-                                <h6 class="subtitle mb-3">Hosting Manager</h6>
+                                <h6 class="subtitle mb-3">Hosting Manager/Frontend Developer</h6>
                                 <p>You can relay on our amazing features list and also our customer services will be
                                     great experience.</p>
                                 <ul class="list-inline">
@@ -181,13 +181,13 @@
                     <!-- Row -->
                     <div class="row">
                         <div class="col-md-12">
-                            <img src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/team/t3.jpg"
+                            <img src="img/teams/rojina.jpg"
                                 alt="wrapkit" class="img-fluid rounded-circle" />
                         </div>
                         <div class="col-md-12 text-center">
                             <div class="pt-2">
                                 <h5 class="mt-4 font-weight-medium mb-0">Rabina Lamichhane</h5>
-                                <h6 class="subtitle mb-3">Hosting Manager</h6>
+                                <h6 class="subtitle mb-3">Hosting Manager /Frontend Developer</h6>
                                 <p>You can relay on our amazing features list and also our customer services will be
                                     great experience.</p>
                                 <ul class="list-inline">
@@ -215,7 +215,7 @@
                     <!-- Row -->
                     <div class="row">
                         <div class="col-md-12">
-                            <img src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/team/t4.jpg"
+                            <img src="img/teams/yanki.jpg"
                                 alt="wrapkit" class="img-fluid rounded-circle" />
                         </div>
                         <div class="col-md-12 text-center">
